@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dj2q34q5rhnr0"]
+
+[ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="1_cpl7e"]
+[ext_resource type="Texture2D" uid="uid://cboyvcu0cvcke" path="res://Textures/Generated/Gradients/BodyGrad.tres" id="2_fxxy0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_u82bv"]
+size = Vector2(350, 36)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1ipa2"]
+size = Vector2(350, 130)
+
+[node name="Node" type="Node2D" unique_id=648412076]
+
+[node name="Header" type="MeshInstance2D" parent="." unique_id=1107206789]
+position = Vector2(175, 18)
+mesh = SubResource("QuadMesh_u82bv")
+texture = ExtResource("1_cpl7e")
+
+[node name="MarginContainer" type="MarginContainer" parent="Header" unique_id=1153043917]
+offset_left = -175.0
+offset_top = -18.0
+offset_right = 175.0
+offset_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Header/MarginContainer" unique_id=549089641]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Node Name"
+vertical_alignment = 1
+
+[node name="Body" type="MeshInstance2D" parent="." unique_id=1439941949]
+position = Vector2(175, 101)
+mesh = SubResource("QuadMesh_1ipa2")
+texture = ExtResource("2_fxxy0")

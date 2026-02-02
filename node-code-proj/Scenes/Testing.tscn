@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://d13h4jt7i6ssu"]
+
+[node name="Control" type="Control" unique_id=1582787767]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=403124771]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+scroll_offset = Vector2(-40.000244, -40.00006)
+show_grid = false
+snapping_enabled = false
+type_names = {
+0: "Excute",
+1: "bool",
+2: "float",
+3: "int",
+4: "string"
+}
+zoom_min = 1.0
+zoom_max = 1.0
+zoom_step = 3.0
+minimap_enabled = false
+show_menu = false
+show_zoom_buttons = false
+show_grid_buttons = false
+show_minimap_button = false
+show_arrange_button = false
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit" unique_id=147111522]
+layout_mode = 0
+offset_left = 236.00024
+offset_top = 131.00006
+offset_right = 462.0
+offset_bottom = 267.0
+mouse_filter = 1
+position_offset = Vector2(196, 91)
+title = "TestNode"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+
+[node name="Control" type="Control" parent="GraphEdit/GraphNode" unique_id=1716144046]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="GraphEdit/GraphNode" unique_id=855563201]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="GraphEdit/GraphNode" unique_id=1810117306]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="GraphEdit/GraphNode" unique_id=574158289]
+layout_mode = 2
+
+[node name="GraphNode2" type="GraphNode" parent="GraphEdit" unique_id=756605164]
+layout_mode = 0
+offset_left = 236.00024
+offset_top = 131.00006
+offset_right = 462.0
+offset_bottom = 267.0
+mouse_filter = 1
+position_offset = Vector2(196, 91)
+title = "TestNode"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+
+[node name="Control" type="Control" parent="GraphEdit/GraphNode2" unique_id=35795644]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="GraphEdit/GraphNode2" unique_id=1190982374]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="GraphEdit/GraphNode2" unique_id=1409354572]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="GraphEdit/GraphNode2" unique_id=1739269766]
+layout_mode = 2
