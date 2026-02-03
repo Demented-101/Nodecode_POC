@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CNodeDef" format=3 uid="uid://dupds2kvy57pi"]
+
+[ext_resource type="Script" uid="uid://3k1a6viu7e2s" path="res://Scripts/CNode_def.gd" id="1_t0g1m"]
+
+[resource]
+script = ExtResource("1_t0g1m")
+name = "Test 2"
+has_execute_pin = true
+left_pins = Dictionary[int, String]({
+3: "Wharr"
+})
+right_pins = Dictionary[int, String]({
+0: "Effected",
+2: "Product"
+})
+metadata/_custom_type_script = "uid://3k1a6viu7e2s"
