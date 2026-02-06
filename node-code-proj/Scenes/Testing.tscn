@@ -11,15 +11,3 @@ position = Vector2(137, 114)
 
 [node name="CNode2" parent="CNode Container" unique_id=634851521 instance=ExtResource("1_bqyd2")]
 position = Vector2(655, 271)
-
-[node name="CNode3" parent="CNode Container" unique_id=1383224192 instance=ExtResource("1_bqyd2")]
-position = Vector2(655, 271)
-
-[node name="CNode4" parent="CNode Container" unique_id=336194570 instance=ExtResource("1_bqyd2")]
-position = Vector2(655, 271)
-
-[node name="CNode5" parent="CNode Container" unique_id=1794737706 instance=ExtResource("1_bqyd2")]
-position = Vector2(655, 271)
-
-[node name="CNode6" parent="CNode Container" unique_id=1516145557 instance=ExtResource("1_bqyd2")]
-position = Vector2(655, 271)

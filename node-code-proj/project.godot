@@ -13,7 +13,7 @@ config_version=5
 config/name="NodeCode_proj"
 run/main_scene="uid://d13h4jt7i6ssu"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Textures/icon.svg"
 
 [input]
 
