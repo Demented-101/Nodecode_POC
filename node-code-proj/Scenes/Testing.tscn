@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://d13h4jt7i6ssu"]
 
-[ext_resource type="PackedScene" uid="uid://dy4tla84v3wg6" path="res://Scenes/CNode.tscn" id="1_bqyd2"]
+[ext_resource type="Script" uid="uid://b8cy3ihte6rym" path="res://Scripts/cnodespawnbutton.gd" id="2_8e680"]
+[ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/C Node Defs/CN_Add.gd" id="3_4y0hx"]
 
 [node name="Node2D" type="Node2D" unique_id=1041673285]
 
-[node name="CNode Container" type="Node2D" parent="." unique_id=354664264]
-
-[node name="CNode" parent="CNode Container" unique_id=1871218423 instance=ExtResource("1_bqyd2")]
-position = Vector2(137, 114)
-
-[node name="CNode2" parent="CNode Container" unique_id=634851521 instance=ExtResource("1_bqyd2")]
-position = Vector2(655, 271)
+[node name="Button" type="Button" parent="." unique_id=2138274316]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "new add"
+script = ExtResource("2_8e680")
+program_script = ExtResource("3_4y0hx")

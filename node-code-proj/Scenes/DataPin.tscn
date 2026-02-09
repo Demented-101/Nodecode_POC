@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://c5eg8t1gmea44"]
 
-[node name="DataPin" type="Node2D" unique_id=362425393]
+[ext_resource type="Texture2D" uid="uid://evradaricva" path="res://Textures/Generated/Gradients/PinGradBool.tres" id="1_5rc5d"]
+[ext_resource type="Script" uid="uid://b7u634rtkhc3a" path="res://Scripts/CNodePin.gd" id="1_mipun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rc5d"]
+
+[node name="DataPin" type="Node2D" unique_id=362425393 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_mipun")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1060774596]
+texture = ExtResource("1_5rc5d")
+
+[node name="Panel" type="Panel" parent="." unique_id=480946251]
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5rc5d")

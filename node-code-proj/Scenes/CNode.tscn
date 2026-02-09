@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://dvh4o43fslch1" path="res://Scripts/CNode.gd" id="1_18pkw"]
 [ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="1_omlyp"]
 [ext_resource type="Texture2D" uid="uid://cboyvcu0cvcke" path="res://Textures/Generated/Gradients/BodyGrad.tres" id="2_18pkw"]
-[ext_resource type="Texture2D" uid="uid://evradaricva" path="res://Textures/Generated/Gradients/PinGradient.tres" id="4_nm6rc"]
 
-[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("drag_zone")]
+[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("drag_zone", "header", "body", "title_label")]
 script = ExtResource("1_18pkw")
 drag_zone = NodePath("Header/MarginContainer")
+header = NodePath("Header")
+body = NodePath("Body")
+title_label = NodePath("Header/MarginContainer/Label")
 
 [node name="Header" type="Polygon2D" parent="." unique_id=1428826287]
 texture = ExtResource("1_omlyp")
@@ -34,11 +36,3 @@ position = Vector2(0, 40)
 texture = ExtResource("2_18pkw")
 polygon = PackedVector2Array(400, 0, 400, 90, 0, 90, 0, 0)
 uv = PackedVector2Array(297, 31, 293, -19, 9, -27, 18, 30)
-
-[node name="Sprite2D" type="Sprite2D" parent="Body" unique_id=1372262093]
-position = Vector2(0, 27)
-texture = ExtResource("4_nm6rc")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Body" unique_id=1044538595]
-position = Vector2(0, 64)
-texture = ExtResource("4_nm6rc")

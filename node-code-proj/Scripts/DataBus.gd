@@ -1,17 +1,17 @@
 extends Node2D
 class_name DataBus
 
-@export var input_pin:DataPin
-@export var output_pin:DataPin
+var output_pin:CNodePin
+var input_pin:CNodePin
 
-func get_value() -> Variant:
-	if !is_valid(): ## if the connection is invalid, remove itself
-		queue_free()
-		hide()
-		return null
+signal Disconnected(_self:DataBus)
+
+func create(_out:CNodePin, _in:CNodePin) -> void:
+	output_pin = _out
+	input_pin = _in
 	
-	return output_pin.get_value()
+	input_pin.connected(self)
 
-func is_valid() -> bool: ## both pins are valid
-	if input_pin == null or output_pin == null: return false
-	return true
+func remove() -> void:
+	Disconnected.emit(self)
+	queue_free()

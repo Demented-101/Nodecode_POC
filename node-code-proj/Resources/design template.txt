@@ -1,0 +1,53 @@
+CNode:
+- base CNode generation
+- visuals and dragging
+- extend to create new CNodes
+
+PinOut:
+- takes data from a CNode
+- if its exc, it will run a signal when the CNode finished running
+- if its data, it will output as a Variant
+
+PinIn:
+- provides data to a CNode
+- if its exc, it will listen for the signal
+- if its data, it will provide the Variant
+
+DataBus:
+- links a input to an output pin
+
+ConnectionHandler:
+- when user interacts with a pin (see rules below) it will carry out the action
+- uses a line 2D for temporary visualisation of the connection
+
+pin controls:
+
+DATA:
+
+click + hold on any -> start drag
+-> release on nothing/invalid -> no connector
+-> release on valid other pin -> add connector
+-> release on self -> remove all connectors
+
+fast click on output -> nothing
+fast click on input -> disconnect
+
+validity:
+- must be same type
+- can only be one input - if input connection already exists, replace
+- can be many outputs
+
+EXC:
+
+click + hold on any -> start drag
+-> release on nothing/invalid -> no connector
+-> release on valid other pin -> add connector
+-> release on self -> remove all connectors
+
+fast click on output -> disconnect
+fast click on input -> nothing
+
+validity:
+- can only be one output - if output connection already exists, replace
+- can be many inputs
+- always same type

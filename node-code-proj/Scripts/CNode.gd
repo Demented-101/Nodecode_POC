@@ -1,32 +1,32 @@
 extends Node2D
 class_name CNode
 
-enum pinTypes {_Bool, _Int, _Float, _String, Variant_Num}
+enum pinTypes {Exc, Bool, Int, _String}
+
+const C_NODE := preload("uid://dy4tla84v3wg6")
+const PIN := preload("uid://c5eg8t1gmea44")
+var program:CNodeProgram
 
 @export var drag_zone:Container
 @export var header:Polygon2D
 @export var body:Polygon2D
-
-@export_category("Settings")
-@export var node_name:String = "Node Name"
-@export var node_width:float = 400
+@export var title_label:Label
 
 var mouse_hovering:bool = false
 var is_dragging:bool = false
 var drag_offset:Vector2
 static var drag_in_use:bool = false
 
-var data_output_count:int
-var data_input_count:int
-var input_pins:Array[DataPinOut]
-var output_pins:Array[DataPinIn]
-
 func _ready() -> void:
 	drag_zone.mouse_entered.connect(func(): mouse_hovering = true)
 	drag_zone.mouse_exited.connect(func(): mouse_hovering = false)
+
+func set_program(_program:CNodeProgram) -> void:
+	program = _program
+	add_child(program)
 	
-	data_input_count = define_inputs().size()
-	data_output_count = define_outputs().size()
+	populate_pins()
+	update_display()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action(&"L_click"):
@@ -51,15 +51,51 @@ func _process(_delta: float) -> void:
 	if is_dragging:
 		position = get_viewport().get_mouse_position() + drag_offset
 
-func define_outputs() -> Dictionary[String, pinTypes]:
-	return {}
-
-func get_output(_index:int) -> Variant:
-	return null
-
-func define_inputs() -> Dictionary[String, pinTypes]:
-	return {}
-
 func populate_pins() -> void:
-	var outputs:Dictionary[String, pinTypes] = define_outputs()
-	var inputs:Dictionary[String, pinTypes] = define_inputs()
+	## setup outputs
+	var outputs:Dictionary[String, pinTypes] = program.define_outputs()
+	program.output_count = outputs.size()
+	
+	for i:int in program.output_count:
+		var new_out_pin:CNodePin = PIN.instantiate()
+		add_child(new_out_pin)
+		new_out_pin.is_output = true
+		program.output_pins.append(new_out_pin)
+		
+		new_out_pin.position = Vector2(program.node_width, 65 + (i * 30))
+		new_out_pin.cnode = self
+		new_out_pin.index = i
+		new_out_pin.setup(outputs.values()[i])
+	
+	## setup inputs
+	var inputs:Dictionary[String, pinTypes] = program.define_inputs()
+	program.input_count = inputs.size()
+	
+	for i:int in program.input_count:
+		var new_in_pin:CNodePin = PIN.instantiate()
+		add_child(new_in_pin)
+		new_in_pin.is_output = false
+		program.input_pins.append(new_in_pin)
+		
+		new_in_pin.position = Vector2(0, 65 + (i * 30))
+		new_in_pin.setup(inputs.values()[i])
+
+func update_display() -> void:
+	var width:int = program.node_width
+	var height:int = 20 + (max(program.input_count, program.output_count) * 30)
+	
+	header.polygon = [
+		Vector2(width, 0), Vector2(width, 40), Vector2(0, 40), Vector2(0, 0)
+	]
+	header.uv = [
+		Vector2(0, 40), Vector2(0, 0), Vector2(width, 0), Vector2(width, 40)
+	]
+	
+	body.polygon = [
+		Vector2(width, 0), Vector2(width, height), Vector2(0, height), Vector2(0, 0)
+	]
+	body.uv = [
+		Vector2(0, height), Vector2(0, 0), Vector2(width, 0), Vector2(width, height)
+	]
+	
+	title_label.text = program.display_name
