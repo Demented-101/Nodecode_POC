@@ -33,6 +33,7 @@ fast click on output -> nothing
 fast click on input -> disconnect
 
 validity:
+- cannot be the same CNode
 - must be same type
 - can only be one input - if input connection already exists, replace
 - can be many outputs
@@ -48,6 +49,7 @@ fast click on output -> disconnect
 fast click on input -> nothing
 
 validity:
+- cannot be the same CNode
 - can only be one output - if output connection already exists, replace
 - can be many inputs
 - always same type

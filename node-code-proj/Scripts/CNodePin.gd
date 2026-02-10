@@ -4,9 +4,8 @@ class_name CNodePin
 @export var sprite:Sprite2D
 @export var drag_zone:Control
 
-signal clicked
-signal dragging
-signal drag_released
+signal hover_started(pin:CNodePin)
+signal hover_ended(pin:CNodePin)
 
 var type:CNode.pinTypes
 var is_output:bool
@@ -17,12 +16,6 @@ var connected_pin:CNodePin
 var cnode:CNode
 var index:int
 
-var mouse_hovering:bool = false
-var click_timer:float = 0
-const hold_duration:float = 0.5
-var is_dragging:bool = false
-static var drag_in_use:bool = false
-
 var gradients:Dictionary[CNode.pinTypes, Texture] = {
 	CNode.pinTypes.Exc : preload("uid://cshc3blqmgwu3"),
 	CNode.pinTypes.Bool : preload("uid://evradaricva"),
@@ -31,35 +24,19 @@ var gradients:Dictionary[CNode.pinTypes, Texture] = {
 }
 
 func _ready() -> void:
-	drag_zone.mouse_entered.connect(func(): mouse_hovering = true)
-	drag_zone.mouse_exited.connect(func(): mouse_hovering = false)
+	drag_zone.mouse_entered.connect(func(): hover_started.emit(self))
+	drag_zone.mouse_exited.connect(func(): hover_ended.emit(self))
+	
+	var drag_handler:BusDragHandler = BusDragHandler.instance
+	
+	hover_started.connect(drag_handler.pin_hovered)
+	hover_ended.connect(drag_handler.pin_hover_ended)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action(&"L_click"):
-		if event.is_pressed() and mouse_hovering: start_drag()
-		else: end_drag()
-
-func start_drag():
-	if drag_in_use: return
-	is_dragging = true
-	drag_in_use = true
-
-func end_drag():
-	if is_dragging:
-		is_dragging = false
-		drag_in_use = false
-		
-		if click_timer <= hold_duration: clicked.emit()
-		else: drag_released.emit()
-
-func _process(delta: float) -> void:
-	if is_dragging: 
-		click_timer += delta
-		if click_timer > hold_duration: dragging.emit()
-
-func setup(_type:CNode.pinTypes):
+func setup(_type:CNode.pinTypes, _cnode:CNode):
 	type = _type
 	sprite.texture = gradients[type]
+	
+	cnode = _cnode
 
 func connected(bus:DataBus) -> void:
 	data_bus = bus
