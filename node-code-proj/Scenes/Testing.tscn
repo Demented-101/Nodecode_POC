@@ -3,16 +3,29 @@
 [ext_resource type="Script" uid="uid://b8cy3ihte6rym" path="res://Scripts/cnodespawnbutton.gd" id="2_8e680"]
 [ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/C Node Defs/CN_Add.gd" id="3_4y0hx"]
 [ext_resource type="Script" uid="uid://c4dtjon80qlec" path="res://Scripts/BusDragHandler.gd" id="3_8e680"]
+[ext_resource type="Script" uid="uid://c7dl68jpxnvnk" path="res://Scripts/C Node Defs/CN_StringAdd.gd" id="3_y53xc"]
 [ext_resource type="Texture2D" uid="uid://b7lofff33r0d3" path="res://Textures/Generated/Gradients/PinGradString.tres" id="4_4y0hx"]
+[ext_resource type="PackedScene" uid="uid://b2rfbamr3qy46" path="res://Scenes/CNodeConstant.tscn" id="6_7mle0"]
 
 [node name="Node2D" type="Node2D" unique_id=1041673285]
 
 [node name="Button" type="Button" parent="." unique_id=2138274316]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1026.0
+offset_top = 11.0
+offset_right = 1100.0
+offset_bottom = 42.0
 text = "new add"
 script = ExtResource("2_8e680")
 program_script = ExtResource("3_4y0hx")
+
+[node name="Button2" type="Button" parent="." unique_id=1624606069]
+offset_left = 1026.0
+offset_top = 47.0
+offset_right = 1100.0
+offset_bottom = 78.0
+text = "new str_add"
+script = ExtResource("2_8e680")
+program_script = ExtResource("3_y53xc")
 
 [node name="BusDragHandler" type="Node" parent="." unique_id=549591013]
 script = ExtResource("3_8e680")
@@ -25,3 +38,6 @@ default_color = Color(0.65882355, 0.65882355, 0.65882355, 0.44705883)
 texture = ExtResource("4_4y0hx")
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="CNode" parent="." unique_id=1871218423 instance=ExtResource("6_7mle0")]
+position = Vector2(257, 453)

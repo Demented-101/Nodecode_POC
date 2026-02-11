@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b2rfbamr3qy46"]
+
+[ext_resource type="Script" uid="uid://dvh4o43fslch1" path="res://Scripts/CNode.gd" id="1_ybg33"]
+[ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="2_sakvp"]
+[ext_resource type="PackedScene" uid="uid://c5eg8t1gmea44" path="res://Scenes/DataPinOut.tscn" id="3_ybg33"]
+
+[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("drag_zone", "header", "body", "title_label")]
+script = ExtResource("1_ybg33")
+drag_zone = NodePath("Header/MarginContainer")
+header = NodePath("Header")
+body = NodePath("")
+title_label = NodePath("Header/MarginContainer/VBoxContainer/Label")
+
+[node name="Header" type="Polygon2D" parent="." unique_id=1428826287]
+texture = ExtResource("2_sakvp")
+polygon = PackedVector2Array(200, 0, 200, 80, 0, 80, 0, 0)
+uv = PackedVector2Array(0, 80, 0, 0, 200, 0, 200, 80)
+
+[node name="MarginContainer" type="MarginContainer" parent="Header" unique_id=1925170702]
+offset_right = 200.0
+offset_bottom = 80.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 6
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Header/MarginContainer" unique_id=1411879920]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Header/MarginContainer/VBoxContainer" unique_id=277576360]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "N/a Constant"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Header/MarginContainer/VBoxContainer" unique_id=1235036194]
+layout_mode = 2
+text = "Configure"
+
+[node name="DataPin" parent="Header" unique_id=362425393 instance=ExtResource("3_ybg33")]
+position = Vector2(200, 37)

@@ -3,8 +3,8 @@ class_name CNodeProgram
 
 var output_count:int
 var input_count:int
-var input_pins:Array[CNodePin]
-var output_pins:Array[CNodePin]
+var input_pins:Array[DataPinIn]
+var output_pins:Array[DataPinOut]
 
 var display_name:String
 var node_width:int

@@ -48,24 +48,31 @@ func dragging() -> void:
 
 func end_drag() -> void:
 	if !is_dragging: return
+	var was_click := click_timer <= hold_duration
 	
 	is_dragging = false
 	line.queue_free()
 	pin.z_index = 0
 	click_timer = 0
 	
-	if DataBus.check_pin_validity(pin, hovered_pin):
-		var new_bus = DataBus.new()
-		
-		if pin.is_output: 
-			pin.cnode.add_child(new_bus)
-			new_bus.create(pin, hovered_pin)
-		else: 
-			hovered_pin.cnode.add_child(new_bus)
-			new_bus.create(hovered_pin, pin)
+	if !was_click:
+		if DataBus.check_pin_validity(pin, hovered_pin):
+			if pin is DataPinOut: create_connection(pin, hovered_pin)
+			else: create_connection(hovered_pin, pin)
+	else:
+		hovered_pin.on_clicked()
 
 func pin_hovered(target_pin:CNodePin) -> void:
 	hovered_pin = target_pin
 
 func pin_hover_ended(target_pin:CNodePin) -> void:
 	if hovered_pin == target_pin: hovered_pin = null
+
+func create_connection(output_pin:DataPinOut, input_pin:DataPinIn) -> void:
+	var new_bus = DataBus.new()
+	
+	if input_pin.data_bus != null:
+		input_pin.data_bus.remove()
+	
+	output_pin.add_child(new_bus)
+	new_bus.create(output_pin, input_pin)

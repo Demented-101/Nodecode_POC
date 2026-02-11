@@ -4,7 +4,8 @@ class_name CNode
 enum pinTypes {Exc, Bool, Int, _String}
 
 const C_NODE := preload("uid://dy4tla84v3wg6")
-const PIN := preload("uid://c5eg8t1gmea44")
+const DATA_PIN_IN = preload("uid://dju7ohku7vqkp")
+const DATA_PIN_OUT = preload("uid://c5eg8t1gmea44")
 var program:CNodeProgram
 
 @export var drag_zone:Container
@@ -57,27 +58,24 @@ func populate_pins() -> void:
 	program.output_count = outputs.size()
 	
 	for i:int in program.output_count:
-		var new_out_pin:CNodePin = PIN.instantiate()
+		var new_out_pin:DataPinOut = DATA_PIN_OUT.instantiate()
 		add_child(new_out_pin)
-		new_out_pin.is_output = true
 		program.output_pins.append(new_out_pin)
 		
 		new_out_pin.position = Vector2(program.node_width, 65 + (i * 30))
-		new_out_pin.index = i
-		new_out_pin.setup(outputs.values()[i], self)
+		new_out_pin.setup(outputs.values()[i], self, i)
 	
 	## setup inputs
 	var inputs:Dictionary[String, pinTypes] = program.define_inputs()
 	program.input_count = inputs.size()
 	
 	for i:int in program.input_count:
-		var new_in_pin:CNodePin = PIN.instantiate()
+		var new_in_pin:DataPinIn = DATA_PIN_IN.instantiate()
 		add_child(new_in_pin)
-		new_in_pin.is_output = false
 		program.input_pins.append(new_in_pin)
 		
 		new_in_pin.position = Vector2(0, 65 + (i * 30))
-		new_in_pin.setup(inputs.values()[i], self)
+		new_in_pin.setup(inputs.values()[i], self, i)
 
 func update_display() -> void:
 	var width:int = program.node_width
@@ -97,4 +95,5 @@ func update_display() -> void:
 		Vector2(0, height), Vector2(0, 0), Vector2(width, 0), Vector2(width, height)
 	]
 	
+	drag_zone.size.x = width
 	title_label.text = program.display_name

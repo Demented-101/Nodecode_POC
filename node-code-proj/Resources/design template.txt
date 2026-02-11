@@ -25,18 +25,18 @@ pin controls:
 DATA:
 
 click + hold on any -> start drag
--> release on nothing/invalid -> no connector
--> release on valid other pin -> add connector
--> release on self -> remove all connectors
+/-> release on nothing/invalid -> no connector
+/-> release on valid other pin -> add connector
+/-> release on self -> none
 
-fast click on output -> nothing
-fast click on input -> disconnect
+/fast click on output -> nothing
+/fast click on input -> disconnect
 
 validity:
-- cannot be the same CNode
-- must be same type
-- can only be one input - if input connection already exists, replace
-- can be many outputs
+/- cannot be the same CNode
+/- must be same type
+/- can only be one input - if input connection already exists, replace
+/- can be many outputs
 
 EXC:
 
