@@ -10,19 +10,19 @@
 [node name="Node2D" type="Node2D" unique_id=1041673285]
 
 [node name="Button" type="Button" parent="." unique_id=2138274316]
-offset_left = 1026.0
-offset_top = 11.0
-offset_right = 1100.0
-offset_bottom = 42.0
+offset_left = 944.0
+offset_top = 69.0
+offset_right = 1018.0
+offset_bottom = 100.0
 text = "new add"
 script = ExtResource("2_8e680")
 program_script = ExtResource("3_4y0hx")
 
 [node name="Button2" type="Button" parent="." unique_id=1624606069]
-offset_left = 1026.0
-offset_top = 47.0
-offset_right = 1100.0
-offset_bottom = 78.0
+offset_left = 944.0
+offset_top = 105.0
+offset_right = 1046.0
+offset_bottom = 136.0
 text = "new str_add"
 script = ExtResource("2_8e680")
 program_script = ExtResource("3_y53xc")

@@ -1,3 +1,4 @@
+@abstract
 extends Node
 class_name CNodeProgram
 
@@ -9,11 +10,6 @@ var output_pins:Array[DataPinOut]
 var display_name:String
 var node_width:int
 
-func define_inputs() -> Dictionary[String, CNode.pinTypes]:
-	return {}
-
-func define_outputs() -> Dictionary[String, CNode.pinTypes]:
-	return {}
-
-func get_output(_index:int) -> Variant:
-	return null
+@abstract func define_inputs() -> Dictionary[String, CNode.pinTypes]
+@abstract func define_outputs() -> Dictionary[String, CNode.pinTypes]
+@abstract func get_output(_index:int) -> Variant
