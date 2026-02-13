@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dju7ohku7vqkp"]
 
-[ext_resource type="Script" uid="uid://co6diybwuvpu4" path="res://Scripts/Pin definitions/DataPinIn.gd" id="1_7daj4"]
+[ext_resource type="Script" uid="uid://co6diybwuvpu4" path="res://Scripts/CNodes/Pin definitions/DataPinIn.gd" id="1_7daj4"]
 [ext_resource type="Texture2D" uid="uid://evradaricva" path="res://Textures/Generated/Gradients/PinGradBool.tres" id="2_6kn74"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rc5d"]

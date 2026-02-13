@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bnlie5irs623t"]
+
+[ext_resource type="Script" uid="uid://blhkgi4encsah" path="res://Scripts/CNodes/Constants/IntConstInterface.gd" id="1_kyr5c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybg33"]
+bg_color = Color(0, 0, 0, 0.3372549)
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0.1764706)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kyr5c"]
+
+[node name="LineEdit" type="LineEdit" unique_id=791467978]
+theme_override_styles/normal = SubResource("StyleBoxFlat_ybg33")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_kyr5c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ybg33")
+placeholder_text = "full number"
+max_length = 5
+script = ExtResource("1_kyr5c")

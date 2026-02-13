@@ -1,19 +1,18 @@
-[gd_scene format=3 uid="uid://b2rfbamr3qy46"]
+[gd_scene format=3 uid="uid://b3ptnofkn36bd"]
 
-[ext_resource type="Script" uid="uid://xll8hrmggkrk" path="res://Scripts/CNodes/Constants/ConstCNode.gd" id="1_5jqdi"]
-[ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="2_sakvp"]
+[ext_resource type="Script" uid="uid://cvc1oi5jt2n70" path="res://Scripts/CNodes/Output/OutputCNode.gd" id="1_bky1r"]
+[ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="2_xt0nl"]
 
-[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("line_edit", "container", "drag_zone", "header", "body", "title_label")]
-script = ExtResource("1_5jqdi")
-line_edit = NodePath("")
-container = NodePath("Header/MarginContainer/VBoxContainer")
+[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("output_label", "drag_zone", "header", "body", "title_label")]
+script = ExtResource("1_bky1r")
+output_label = NodePath("Header/MarginContainer/VBoxContainer/value")
 drag_zone = NodePath("Header/MarginContainer")
 header = NodePath("Header")
 body = NodePath("Body")
 title_label = NodePath("Header/MarginContainer/VBoxContainer/Label")
 
 [node name="Header" type="Polygon2D" parent="." unique_id=1428826287]
-texture = ExtResource("2_sakvp")
+texture = ExtResource("2_xt0nl")
 polygon = PackedVector2Array(200, 0, 200, 80, 0, 80, 0, 0)
 uv = PackedVector2Array(0, 80, 0, 0, 200, 0, 200, 80)
 
@@ -35,11 +34,16 @@ alignment = 1
 [node name="Label" type="Label" parent="Header/MarginContainer/VBoxContainer" unique_id=277576360]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "N/a Constant"
+text = "Output:"
+vertical_alignment = 1
+
+[node name="value" type="Label" parent="Header/MarginContainer/VBoxContainer" unique_id=390836179]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
 [node name="Body" type="Polygon2D" parent="." unique_id=407316671]
 visible = false
-texture = ExtResource("2_sakvp")
+texture = ExtResource("2_xt0nl")
 polygon = PackedVector2Array(200, 0, 200, 80, 0, 80, 0, 0)
 uv = PackedVector2Array(0, 80, 0, 0, 200, 0, 200, 80)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy4tla84v3wg6"]
 
-[ext_resource type="Script" uid="uid://dvh4o43fslch1" path="res://Scripts/CNode.gd" id="1_18pkw"]
+[ext_resource type="Script" uid="uid://dvh4o43fslch1" path="res://Scripts/CNodes/CNode.gd" id="1_18pkw"]
 [ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="1_omlyp"]
 [ext_resource type="Texture2D" uid="uid://cboyvcu0cvcke" path="res://Textures/Generated/Gradients/BodyGrad.tres" id="2_18pkw"]
 

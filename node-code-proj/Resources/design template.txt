@@ -53,3 +53,19 @@ validity:
 - can only be one output - if output connection already exists, replace
 - can be many inputs
 - always same type
+
+Constants:
+CNode Constant:
+- extends CNode
+- generates new look along with single pin
+- will contain a constant interface
+
+Constant Program:
+- has new "set value" and "get interface" function 
+- provides the correct constant interface to the cnode
+
+Interfaces:
+- will provide a "changed" signal that the program can connect to
+- bool: simple toggle button, true or false
+- int: small 5 digit text edit. must be full number
+- string: max 30 character string text edit
