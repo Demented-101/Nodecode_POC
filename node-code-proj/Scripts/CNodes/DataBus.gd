@@ -15,6 +15,7 @@ var gradients:Dictionary[CNode.pinTypes, Texture] = {
 
 func create(_out:CNodePin, _in:CNodePin) -> void:
 	output_pin = _out
+	output_pin.connected(self)
 	input_pin = _in
 	input_pin.connected(self)
 	

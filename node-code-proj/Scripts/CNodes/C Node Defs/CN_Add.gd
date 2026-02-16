@@ -16,6 +16,8 @@ func define_outputs() -> Dictionary[String, CNode.pinTypes]:
 	}
 
 func get_output(index:int) -> Variant:
+	if !verify_inputs(2): return null
+	
 	match index:
 		0: return input_pins[0].get_value() + input_pins[1].get_value()
 	
