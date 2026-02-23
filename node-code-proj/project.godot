@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="NodeCode_proj"
-run/main_scene="uid://d13h4jt7i6ssu"
+run/main_scene="uid://f4j6nro81645"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Textures/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [input]
 

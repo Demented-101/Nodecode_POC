@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c4dtjon80qlec" path="res://Scripts/BusDragHandler.gd" id="1_rp7uk"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/NodeSelector.gd" id="2_rp7uk"]
-[ext_resource type="Script" uid="uid://b8yfaa0anpdvs" path="res://Scripts/CNodes/NodeEnvironment.gd" id="4_2g33g"]
 [ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/QuitButton.gd" id="4_cpnu5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_klq1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klq1y"]
+bg_color = Color(0.14767182, 0.14767182, 0.14767176, 1)
 
 [node name="Control" type="Control" unique_id=439458253]
 layout_mode = 3
@@ -30,8 +32,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_7blk1")
-split_offsets = PackedInt32Array(-599)
-split_offset = -599
+split_offsets = PackedInt32Array(-250)
+split_offset = -250
 
 [node name="Robot Screen" type="SubViewportContainer" parent="HSplitContainer" unique_id=1245478478]
 clip_contents = true
@@ -42,7 +44,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/Robot Screen" unique_id=178615107]
 handle_input_locally = false
-size = Vector2i(355, 1080)
+size = Vector2i(704, 1080)
 render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="HSplitContainer/Robot Screen/SubViewport" unique_id=944097149]
@@ -96,11 +98,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Data node"
 script = ExtResource("2_rp7uk")
-nodes = Array[String](["Add", "Subtract", "Multiply", "Divide", "Add (String)"])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer/Node picker" unique_id=1494591544]
-title = "Data Nodes"
+item_count = 3
+item_0/text = "1"
+item_0/id = 0
+item_1/text = "2"
+item_1/id = 1
+item_2/text = "3"
+item_2/id = 2
 
 [node name="Run" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer" unique_id=240095192]
 layout_mode = 2
@@ -119,11 +126,9 @@ size_flags_vertical = 4
 text = "Quit"
 script = ExtResource("4_cpnu5")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/VBoxContainer" unique_id=2085539476]
+[node name="Code Area" type="Panel" parent="HSplitContainer/VBoxContainer" unique_id=2123701934]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/SubViewportContainer" unique_id=1620765791]
-
-[node name="CNodeEnvironment" type="Node" parent="HSplitContainer/VBoxContainer/SubViewportContainer/SubViewport" unique_id=1247622877]
-script = ExtResource("4_2g33g")
-metadata/_custom_type_script = "uid://b8yfaa0anpdvs"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_klq1y")
