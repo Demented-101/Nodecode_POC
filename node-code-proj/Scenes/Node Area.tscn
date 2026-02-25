@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://jefplpo2lu1y"]
+
+[ext_resource type="Script" uid="uid://b8yfaa0anpdvs" path="res://Scripts/CNodes/NodeEnvironment.gd" id="1_04pny"]
+[ext_resource type="Script" uid="uid://b8cy3ihte6rym" path="res://Scripts/CNodeSpawnButton.gd" id="2_8evi0"]
+[ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/CNodes/C Node Defs/CN_Add.gd" id="3_2b68d"]
+
+[node name="NodeArea" type="Node2D" unique_id=219264318]
+
+[node name="Button4" type="Button" parent="." unique_id=1484482371]
+offset_left = 718.0
+offset_top = 289.0
+offset_right = 937.0
+offset_bottom = 331.0
+script = ExtResource("2_8evi0")
+program_script = ExtResource("3_2b68d")
+
+[node name="Button3" type="Button" parent="." unique_id=37298777]
+offset_left = 312.0
+offset_top = 152.0
+offset_right = 531.0
+offset_bottom = 194.0
+script = ExtResource("2_8evi0")
+program_script = ExtResource("3_2b68d")
+
+[node name="Button2" type="Button" parent="." unique_id=1795811548]
+offset_left = 1124.0
+offset_top = 454.0
+offset_right = 1343.0
+offset_bottom = 496.0
+script = ExtResource("2_8evi0")
+program_script = ExtResource("3_2b68d")
+
+[node name="Button" type="Button" parent="." unique_id=1364661271]
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 244.0
+offset_bottom = 62.0
+script = ExtResource("2_8evi0")
+program_script = ExtResource("3_2b68d")
+
+[node name="CNodeEnvironment" type="Node" parent="." unique_id=631882908]
+script = ExtResource("1_04pny")
+metadata/_custom_type_script = "uid://b8yfaa0anpdvs"

@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c4dtjon80qlec" path="res://Scripts/BusDragHandler.gd" id="1_rp7uk"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/NodeSelector.gd" id="2_rp7uk"]
-[ext_resource type="Script" uid="uid://b8yfaa0anpdvs" path="res://Scripts/CNodes/NodeEnvironment.gd" id="4_2g33g"]
+[ext_resource type="PackedScene" uid="uid://jefplpo2lu1y" path="res://Scenes/Node Area.tscn" id="4_2g33g"]
 [ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/QuitButton.gd" id="4_cpnu5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_klq1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpnu5"]
+bg_color = Color(0.40451086, 0.40451124, 0.40451103, 1)
 
 [node name="Control" type="Control" unique_id=439458253]
 layout_mode = 3
@@ -119,11 +122,23 @@ size_flags_vertical = 4
 text = "Quit"
 script = ExtResource("4_cpnu5")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/VBoxContainer" unique_id=2085539476]
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/VBoxContainer" unique_id=892924937]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/SubViewportContainer" unique_id=1620765791]
+[node name="Panel" type="Panel" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=1471530107]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cpnu5")
 
-[node name="CNodeEnvironment" type="Node" parent="HSplitContainer/VBoxContainer/SubViewportContainer/SubViewport" unique_id=1247622877]
-script = ExtResource("4_2g33g")
-metadata/_custom_type_script = "uid://b8yfaa0anpdvs"
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=2085539476]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer" unique_id=1620765791]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1553, 1020)
+render_target_update_mode = 4
+
+[node name="NodeArea" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
