@@ -40,8 +40,8 @@ func start_drag():
 	is_dragging = true 
 	get_parent().move_child(self, -1)
 	
-	var mouse_pos:Vector2 = get_viewport().get_mouse_position()
-	drag_offset = position - mouse_pos
+	var mouse_pos:Vector2 = get_global_mouse_position()
+	drag_offset = global_position - mouse_pos
 
 func end_drag():
 	if is_dragging:
@@ -50,7 +50,7 @@ func end_drag():
 
 func _process(_delta: float) -> void:
 	if is_dragging:
-		position = get_viewport().get_mouse_position() + drag_offset
+		global_position = get_global_mouse_position() + drag_offset
 
 func populate_pins() -> void:
 	## setup outputs

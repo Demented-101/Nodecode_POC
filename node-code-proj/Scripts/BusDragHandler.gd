@@ -40,11 +40,14 @@ func start_drag() -> void:
 	line.hide()
 
 func dragging() -> void:
-	var do_show:bool = (pin.global_position - get_viewport().get_mouse_position()).length() > 10
-	var target_position:Vector2 = hovered_pin.global_position if hovered_pin != null else get_viewport().get_mouse_position()
+	var target_position:Vector2
+	if hovered_pin:
+		target_position = hovered_pin.global_position
+	else:
+		target_position = pin.get_global_mouse_position()
 	
-	line.visible = do_show
-	line.points = [pin.global_position, target_position]
+	line.visible = true
+	line.points = [target_position, pin.global_position]
 
 func end_drag() -> void:
 	if !is_dragging: return
