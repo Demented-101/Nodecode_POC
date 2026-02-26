@@ -9,8 +9,9 @@
 [node name="NodeArea" type="Node2D" unique_id=219264318]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=56048330]
-position = Vector2(531, 331)
+position = Vector2(352, 152)
 script = ExtResource("1_2b68d")
+zoom_max = 2.0
 
 [node name="Button4" type="Button" parent="." unique_id=1484482371]
 offset_left = 718.0

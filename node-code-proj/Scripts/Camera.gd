@@ -2,9 +2,11 @@ extends Camera2D
 class_name NodeEnvironmentCamera
 
 static var instance:NodeEnvironmentCamera
+var zoom_locked:bool
 
-func _ready() -> void:
-	if instance != null: self.queue_free()
+
+func _init() -> void:
+	if instance != null: self.free()
 	instance = self
 
 const scroll_speed:float = 0.1
@@ -21,5 +23,6 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action(&"Scroll_down") and Input.is_action_pressed(&"Scroll_down"): do_zoom(-scroll_speed)
 
 func do_zoom(direction:float) -> void:
+	if zoom_locked: return
 	zoom.x = clampf(zoom.x + direction, zoom_min, zoom_max)
 	zoom.y = zoom.x

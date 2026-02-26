@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://f4j6nro81645"]
 
-[ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/NodeSelector.gd" id="2_rp7uk"]
+[ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/Toolbar/NodeSelector.gd" id="2_rp7uk"]
+[ext_resource type="Script" uid="uid://cyywd1pndmnp" path="res://Scripts/Toolbar/CameraZoom.gd" id="3_cpnu5"]
 [ext_resource type="PackedScene" uid="uid://jefplpo2lu1y" path="res://Scenes/Node Area.tscn" id="4_2g33g"]
-[ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/QuitButton.gd" id="4_cpnu5"]
+[ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/Toolbar/QuitButton.gd" id="4_cpnu5"]
+[ext_resource type="Script" uid="uid://16b5h82rjjeq" path="res://Scripts/Toolbar/RecenterCamButton.gd" id="4_hicjc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_klq1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp7uk"]
+bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpnu5"]
 bg_color = Color(0.40451086, 0.40451124, 0.40451103, 1)
@@ -69,8 +74,9 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="Toolbar" type="Panel" parent="HSplitContainer/VBoxContainer" unique_id=1198390603]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rp7uk")
 
 [node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/VBoxContainer/Toolbar" unique_id=1392629514]
 layout_mode = 1
@@ -84,11 +90,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer" unique_id=1780565153]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer" unique_id=462822205]
+layout_mode = 2
+
+[node name="Top Section" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer" unique_id=1780565153]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Node picker" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer" unique_id=968152237 node_paths=PackedStringArray("popup")]
+[node name="Node picker" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=968152237 node_paths=PackedStringArray("popup")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -97,25 +106,57 @@ script = ExtResource("2_rp7uk")
 nodes = Array[String](["Add", "Subtract", "Multiply", "Divide", "Add (String)"])
 popup = NodePath("PopupMenu")
 
-[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer/Node picker" unique_id=1494591544]
+[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Node picker" unique_id=1494591544]
 title = "Data Nodes"
 
-[node name="Run" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer" unique_id=240095192]
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=901454897]
+layout_mode = 2
+
+[node name="Run" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=240095192]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Run
 "
 
-[node name="Spacer" type="Control" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer" unique_id=1664634720]
+[node name="Spacer" type="Control" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1664634720]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Quit" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/HBoxContainer" unique_id=1408649148]
+[node name="Quit" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1408649148]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Quit"
 script = ExtResource("4_cpnu5")
+
+[node name="Camera Controls" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer" unique_id=1825652398]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Camera Controls" unique_id=1968075654]
+layout_mode = 2
+text = "Camera Zoom:"
+
+[node name="HSlider" type="HSlider" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Camera Controls" unique_id=411300362 node_paths=PackedStringArray("reset_button")]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_cpnu5")
+reset_button = NodePath("../Reset")
+
+[node name="Reset" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Camera Controls" unique_id=1082776225]
+layout_mode = 2
+text = "Reset"
+
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Camera Controls" unique_id=336485498]
+layout_mode = 2
+
+[node name="Recenter" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Camera Controls" unique_id=1432889644]
+layout_mode = 2
+text = "Re-center Camera"
+script = ExtResource("4_hicjc")
 
 [node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/VBoxContainer" unique_id=892924937]
 layout_mode = 2
@@ -133,7 +174,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer" unique_id=1620765791]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(890, 588)
+size = Vector2i(890, 558)
 render_target_update_mode = 4
 
 [node name="NodeArea" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
