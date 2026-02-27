@@ -1,0 +1,31 @@
+Node-bot levels
+
+- move from A to B
+Robot move chip w For loop
+Robot move spaces w constant
+Robot move spaces w 2 locked constants and add chip
+Robot move spaces w distance between point a and b
+
+- move from A to B to C
+Robot move, rotate 90 chip, move
+Robot move, rotate amount w constant, move
+Robot rotate, move, rotate, move
+Robot move, look at, move
+
+- avoid for timer
+Robot move forward to avoid obstacles with timer to not go too fast
+Robot area restricted, must move back and forth with timer, use dodge chip
+Robot dodge obstacles with random times, use "check direction" chip to know when to dodge
+Same, without dodge chip
+
+- move AB with enemy
+Robot move w, punch, move
+Same, but with 2 enemies
+Robot move, rotate to face enemy, punch, rotate back, move
+Same, but with 4 enemies (2 on each side)
+
+- move AB with lasers
+Robot move, check space forward for lazer, and then move
+Same, but more lasers
+Robot move, check for laser, don't move, check for enemy, don't move + punch (restricted movement)
+Robot move, check l and r for enemies, check forward for laser
