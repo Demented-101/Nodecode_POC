@@ -19,7 +19,7 @@ func populate_pins() -> void:
 	input.setup(inputs.values()[0], self, 0)
 
 func update_display() -> void:
-	var width:int = program.node_width
+	var width:int = program.definition.width
 	
 	header.polygon = [
 		Vector2(width, 0), Vector2(width, 80), Vector2(0, 80), Vector2(0, 0)
@@ -31,7 +31,7 @@ func update_display() -> void:
 	body.hide()
 	
 	drag_zone.size.x = width
-	title_label.text = program.display_name
+	title_label.text = program.definition.display_name
 	
 	if program is OutputProgram:
 		var out_program:OutputProgram = program as OutputProgram

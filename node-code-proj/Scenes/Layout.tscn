@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://f4j6nro81645"]
 
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_1ha1s"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/Toolbar/NodeSelector.gd" id="2_rp7uk"]
+[ext_resource type="Resource" uid="uid://btrvmb72bv3qm" path="res://Scripts/CNodes/C Node Defs/CND_Add.tres" id="3_6ysdc"]
 [ext_resource type="Script" uid="uid://cyywd1pndmnp" path="res://Scripts/Toolbar/CameraZoom.gd" id="3_cpnu5"]
 [ext_resource type="PackedScene" uid="uid://jefplpo2lu1y" path="res://Scenes/Node Area.tscn" id="4_2g33g"]
+[ext_resource type="Resource" uid="uid://3giehi2so4s8" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Int.tres" id="4_5jvyq"]
 [ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/Toolbar/QuitButton.gd" id="4_cpnu5"]
 [ext_resource type="Script" uid="uid://16b5h82rjjeq" path="res://Scripts/Toolbar/RecenterCamButton.gd" id="4_hicjc"]
+[ext_resource type="Resource" uid="uid://r3ufqbs7nkug" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Int.tres" id="5_ae4ha"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
@@ -103,7 +107,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Data node"
 script = ExtResource("2_rp7uk")
-nodes = Array[String](["Add", "Subtract", "Multiply", "Divide", "Add (String)"])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("3_6ysdc"), ExtResource("4_5jvyq"), ExtResource("5_ae4ha")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Node picker" unique_id=1494591544]

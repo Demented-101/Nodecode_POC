@@ -62,7 +62,7 @@ func populate_pins() -> void:
 		add_child(new_out_pin)
 		program.output_pins.append(new_out_pin)
 		
-		new_out_pin.position = Vector2(program.node_width, 65 + (i * 30))
+		new_out_pin.position = Vector2(program.definition.width, 65 + (i * 30))
 		new_out_pin.setup(outputs.values()[i], self, i)
 	
 	## setup inputs
@@ -78,7 +78,7 @@ func populate_pins() -> void:
 		new_in_pin.setup(inputs.values()[i], self, i)
 
 func update_display() -> void:
-	var width:int = program.node_width
+	var width:int = program.definition.width
 	var height:int = 20 + (max(program.input_count, program.output_count) * 30)
 	
 	header.polygon = [
@@ -96,4 +96,4 @@ func update_display() -> void:
 	]
 	
 	drag_zone.size.x = width
-	title_label.text = program.display_name
+	title_label.text = program.definition.display_name

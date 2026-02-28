@@ -1,15 +1,14 @@
 extends CNodeProgram
 
 func _ready() -> void:
-	display_name = "Add"
-	node_width = 120
+	definition = load("uid://btrvmb72bv3qm")
 
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"A" : CNode.pinTypes.Int,
 		"B" : CNode.pinTypes.Int,
 	}
-	
+
 func define_outputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"Out" : CNode.pinTypes.Int

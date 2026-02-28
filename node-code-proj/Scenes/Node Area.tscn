@@ -2,10 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cy8v12lm7g2vb" path="res://Scripts/Camera.gd" id="1_2b68d"]
 [ext_resource type="Script" uid="uid://b8yfaa0anpdvs" path="res://Scripts/CNodes/NodeEnvironment.gd" id="1_04pny"]
-[ext_resource type="Script" uid="uid://b8cy3ihte6rym" path="res://Scripts/cnodespawnbutton.gd" id="2_8evi0"]
-[ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/CNodes/C Node Defs/CN_Add.gd" id="3_2b68d"]
-[ext_resource type="Script" uid="uid://draqjn7xi1skl" path="res://Scripts/CNodes/Output/Programs/OCN_Int.gd" id="4_kxfl2"]
-[ext_resource type="Script" uid="uid://brd2xx1lsfvwk" path="res://Scripts/CNodes/Constants/Programs/CCN_Int.gd" id="5_arivv"]
 [ext_resource type="Script" uid="uid://c4dtjon80qlec" path="res://Scripts/BusDragHandler.gd" id="5_go0ta"]
 
 [node name="NodeArea" type="Node2D" unique_id=219264318]
@@ -14,42 +10,6 @@
 position = Vector2(352, 152)
 script = ExtResource("1_2b68d")
 zoom_max = 2.0
-
-[node name="Button4" type="Button" parent="." unique_id=1484482371]
-offset_left = 718.0
-offset_top = 289.0
-offset_right = 937.0
-offset_bottom = 331.0
-script = ExtResource("2_8evi0")
-program_script = ExtResource("3_2b68d")
-
-[node name="Button3" type="Button" parent="." unique_id=37298777]
-offset_left = 312.0
-offset_top = 152.0
-offset_right = 531.0
-offset_bottom = 194.0
-text = "Int Output"
-script = ExtResource("2_8evi0")
-program_script = ExtResource("4_kxfl2")
-cnode_type = 2
-
-[node name="Button2" type="Button" parent="." unique_id=1795811548]
-offset_left = 1124.0
-offset_top = 454.0
-offset_right = 1343.0
-offset_bottom = 496.0
-text = "Int Const"
-script = ExtResource("2_8evi0")
-program_script = ExtResource("5_arivv")
-cnode_type = 1
-
-[node name="Button" type="Button" parent="." unique_id=1364661271]
-offset_left = 25.0
-offset_top = 20.0
-offset_right = 244.0
-offset_bottom = 62.0
-script = ExtResource("2_8evi0")
-program_script = ExtResource("3_2b68d")
 
 [node name="CNodeEnvironment" type="Node" parent="." unique_id=631882908]
 script = ExtResource("1_04pny")

@@ -1,8 +1,7 @@
 extends OutputProgram
 
 func _ready() -> void:
-	display_name = "Int Output"
-	node_width = 200
-
+	definition = load("uid://3giehi2so4s8")
+	
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {"output" : CNode.pinTypes.Int}

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://btrvmb72bv3qm"]
+
+[ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/CNodes/Programs/CN_Add.gd" id="1_ftp7k"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="1_lyeo3"]
+
+[resource]
+script = ExtResource("1_lyeo3")
+display_name = "Add"
+width = 120
+program_script = ExtResource("1_ftp7k")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

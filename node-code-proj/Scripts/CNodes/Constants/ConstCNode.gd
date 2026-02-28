@@ -16,11 +16,11 @@ func populate_pins() -> void:
 	add_child(output)
 	program.output_pins = [output]
 	
-	output.position = Vector2(program.node_width, 37)
+	output.position = Vector2(program.definition.width, 37)
 	output.setup(outputs.values()[0], self, 0)
 
 func update_display() -> void:
-	var width:int = program.node_width
+	var width:int = program.definition.width
 	
 	header.polygon = [
 		Vector2(width, 0), Vector2(width, 80), Vector2(0, 80), Vector2(0, 0)
@@ -32,7 +32,7 @@ func update_display() -> void:
 	body.hide()
 	
 	drag_zone.size.x = width
-	title_label.text = program.display_name
+	title_label.text = program.definition.display_name
 	
 	## setup interface
 	if program is ConstantProgram: 

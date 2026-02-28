@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d13h4jt7i6ssu"]
 
-[ext_resource type="Script" uid="uid://b8cy3ihte6rym" path="res://Scripts/CNodeSpawnButton.gd" id="2_8e680"]
-[ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/CNodes/C Node Defs/CN_Add.gd" id="3_4y0hx"]
+[ext_resource type="Script" uid="uid://b8cy3ihte6rym" path="res://Scripts/cnodespawnbutton.gd" id="2_8e680"]
+[ext_resource type="Script" uid="uid://disnj66wg5h40" path="res://Scripts/CNodes/Programs/CN_Add.gd" id="3_4y0hx"]
 [ext_resource type="Script" uid="uid://c4dtjon80qlec" path="res://Scripts/BusDragHandler.gd" id="3_8e680"]
-[ext_resource type="Script" uid="uid://c7dl68jpxnvnk" path="res://Scripts/CNodes/C Node Defs/CN_StringAdd.gd" id="3_y53xc"]
+[ext_resource type="Script" uid="uid://c7dl68jpxnvnk" path="res://Scripts/CNodes/Programs/CN_StringAdd.gd" id="3_y53xc"]
 [ext_resource type="Script" uid="uid://brd2xx1lsfvwk" path="res://Scripts/CNodes/Constants/Programs/CCN_Int.gd" id="4_y53xc"]
 [ext_resource type="Script" uid="uid://draqjn7xi1skl" path="res://Scripts/CNodes/Output/Programs/OCN_Int.gd" id="5_7mle0"]
 

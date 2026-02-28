@@ -3,8 +3,7 @@ extends ConstantProgram
 const INT_CONST_INTERFACE = preload("uid://bnlie5irs623t")
 
 func _ready() -> void:
-	display_name = "Int Constant"
-	node_width = 200
+	definition = load("uid://r3ufqbs7nkug")
 	value = 0
 
 func define_outputs() -> Dictionary[String, CNode.pinTypes]:
