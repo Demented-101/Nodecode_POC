@@ -18,9 +18,9 @@ func disconnected(_bus:DataBus) -> void:
 	connected_pin = null
 	is_connected = false
 
-func get_value() -> Variant:
+func get_value(depth:int) -> Variant:
 	if type == CNode.pinTypes.Exc: return null ## exc has no return value
-	if is_connected: return connected_pin.get_value()
+	if is_connected: return connected_pin.get_value(depth)
 	
 	## define default values
 	match type:
@@ -28,7 +28,7 @@ func get_value() -> Variant:
 		CNode.pinTypes.Int: return 0
 		CNode.pinTypes._String: return ""
 	
-	return null
+	return CNError.new(Const.ErrorType.TypeError, self, depth)
 
 func on_clicked() -> void:
 	if data_bus:

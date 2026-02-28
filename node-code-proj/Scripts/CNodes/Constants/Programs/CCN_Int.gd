@@ -5,6 +5,7 @@ const INT_CONST_INTERFACE = preload("uid://bnlie5irs623t")
 func _ready() -> void:
 	display_name = "Int Constant"
 	node_width = 200
+	value = 0
 
 func define_outputs() -> Dictionary[String, CNode.pinTypes]:
 	return {"Output" : CNode.pinTypes.Int}

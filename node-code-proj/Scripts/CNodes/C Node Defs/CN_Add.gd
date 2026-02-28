@@ -15,10 +15,11 @@ func define_outputs() -> Dictionary[String, CNode.pinTypes]:
 		"Out" : CNode.pinTypes.Int
 	}
 
-func get_output(index:int) -> Variant:
-	if !verify_inputs(2): return null
+func get_output(index:int, depth:int) -> Variant:
+	var err = verify_inputs(2, depth)
+	if err: return err
 	
 	match index:
-		0: return input_pins[0].get_value() + input_pins[1].get_value()
+		0: return input_values[0] + input_values[1]
 	
-	return null
+	return CNError.new(Const.ErrorType.NoExpectedValue, self, depth)

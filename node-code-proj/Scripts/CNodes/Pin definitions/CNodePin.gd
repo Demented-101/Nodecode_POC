@@ -35,7 +35,7 @@ func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int):
 @abstract func disconnected(_bus:DataBus) -> void
 
 ## passes on the value
-@abstract func get_value() -> Variant
+@abstract func get_value(_depth:int) -> Variant
 
 ## used when the mouse clicks on the pin
 @abstract func on_clicked() -> void

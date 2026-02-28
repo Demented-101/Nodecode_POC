@@ -20,9 +20,11 @@ func disconnected(_bus:DataBus) -> void:
 	
 	_bus.Disconnected.disconnect(disconnected)
 
-func get_value() -> Variant:
-	if !is_connected: return null ## return null if not connected
-	return cnode.program.get_output(index)
+func get_value(depth:int) -> Variant:
+	if depth > Const.allowed_data_depth: return CNError.new(Const.ErrorType.MaxDepth, self, depth)
+	
+	if !is_connected: return CNError.new(Const.ErrorType.ConnectionError, self, depth) ## return null if not connected
+	return cnode.program.get_output(index, depth + 1)
 
 func on_clicked() -> void: # do nothing when clicked
 	pass

@@ -15,6 +15,10 @@ run/main_scene="uid://f4j6nro81645"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Textures/icon.svg"
 
+[autoload]
+
+Const="*uid://cvavqih44hjh4"
+
 [input]
 
 L_click={
