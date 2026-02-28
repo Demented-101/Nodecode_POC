@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://byrenuw3drdah"]
+
+[ext_resource type="Script" uid="uid://c3oi51uliix13" path="res://Scripts/CNodes/Programs/CN_Subtract.gd" id="1_xwpq4"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_tqmj4"]
+
+[resource]
+script = ExtResource("2_tqmj4")
+display_name = "Subtract"
+width = 145
+program_script = ExtResource("1_xwpq4")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"
