@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://bx48fa2tmfhpw"]
+
+[ext_resource type="Script" uid="uid://dev0wroxjulrd" path="res://Scripts/CNodes/Programs/Logic/CN_Not.gd" id="1_i8qra"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_676rb"]
+
+[resource]
+script = ExtResource("2_676rb")
+display_name = "Not"
+width = 100
+program_script = ExtResource("1_i8qra")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

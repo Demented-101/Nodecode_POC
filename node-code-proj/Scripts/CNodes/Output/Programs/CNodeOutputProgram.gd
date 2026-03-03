@@ -12,5 +12,7 @@ func _process(_delta:float) -> void:
 	
 	if output is CNError:
 		output_label.text = "Error: " + output.type_str
+	elif output is bool:
+		output_label.text = "True" if output else "False"
 	else:
 		output_label.text = str(output)

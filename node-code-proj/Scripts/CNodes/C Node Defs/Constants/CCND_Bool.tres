@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://bbifjfmw7p6bb"]
+
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="1_3xi8n"]
+[ext_resource type="Script" uid="uid://blkmbg4evf436" path="res://Scripts/CNodes/Constants/Programs/CCN_Bool.gd" id="1_c3m4u"]
+
+[resource]
+script = ExtResource("1_3xi8n")
+display_name = "Bool Constant"
+width = 250
+program_script = ExtResource("1_c3m4u")
+cnode_type = 1
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

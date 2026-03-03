@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://63wqnw3leds7"]
+
+[ext_resource type="Script" uid="uid://4w6giq63uwmi" path="res://Scripts/CNodes/Programs/Logic/CN_GreaterThan.gd" id="1_x2821"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_6ryig"]
+
+[resource]
+script = ExtResource("2_6ryig")
+display_name = "Greater Than"
+width = 170
+program_script = ExtResource("1_x2821")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

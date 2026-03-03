@@ -12,7 +12,9 @@ var line:Line2D
 var hovered_pin:CNodePin
 
 func _ready() -> void:
-	if instance != null: queue_free()
+	if instance != null: 
+		free()
+		return
 	instance = self
 
 func _input(event: InputEvent) -> void:

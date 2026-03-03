@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://b4wvvtxd13bx7"]
+
+[ext_resource type="Script" uid="uid://d0y41nekmpou3" path="res://Scripts/CNodes/Programs/Logic/CN_And.gd" id="1_nw7st"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_4gqgk"]
+
+[resource]
+script = ExtResource("2_4gqgk")
+display_name = "And"
+width = 120
+program_script = ExtResource("1_nw7st")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

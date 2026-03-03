@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://dqs4x52kek0gp"]
+
+[ext_resource type="Script" uid="uid://ctsmdmiq88430" path="res://Scripts/CNodes/Programs/Logic/CN_Xor.gd" id="1_dmkiv"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_tvhat"]
+
+[resource]
+script = ExtResource("2_tvhat")
+display_name = "Xor"
+width = 120
+program_script = ExtResource("1_dmkiv")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

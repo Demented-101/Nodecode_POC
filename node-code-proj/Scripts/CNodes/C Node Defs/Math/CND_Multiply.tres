@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://5tcmio0qcmtw"]
 
-[ext_resource type="Script" uid="uid://cshwlggbuufvo" path="res://Scripts/CNodes/Programs/CN_Multiply.gd" id="1_co2cg"]
+[ext_resource type="Script" uid="uid://cshwlggbuufvo" path="res://Scripts/CNodes/Programs/Math/CN_Multiply.gd" id="1_co2cg"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_dppd0"]
 
 [resource]

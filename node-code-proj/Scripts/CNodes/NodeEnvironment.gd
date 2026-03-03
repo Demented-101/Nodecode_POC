@@ -4,5 +4,7 @@ class_name CNodeEnvironment
 static var instance:CNodeEnvironment
 
 func _ready() -> void:
-	if instance != null: queue_free()
+	if instance != null: 
+		free()
+		return
 	instance = self

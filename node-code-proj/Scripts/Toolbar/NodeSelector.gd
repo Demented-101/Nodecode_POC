@@ -28,5 +28,6 @@ func node_selected(index:int) -> void:
 	CNodeEnvironment.instance.add_sibling(new_node)
 	var new_program = Node.new()
 	new_program.script = definition.program_script
+	new_program.definition = definition
 	
 	new_node.set_program(new_program)

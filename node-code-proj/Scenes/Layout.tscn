@@ -2,16 +2,25 @@
 
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_1ha1s"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/Toolbar/NodeSelector.gd" id="2_rp7uk"]
-[ext_resource type="Resource" uid="uid://btrvmb72bv3qm" path="res://Scripts/CNodes/C Node Defs/CND_Add.tres" id="3_6ysdc"]
+[ext_resource type="Resource" uid="uid://btrvmb72bv3qm" path="res://Scripts/CNodes/C Node Defs/Math/CND_Add.tres" id="3_6ysdc"]
 [ext_resource type="Script" uid="uid://cyywd1pndmnp" path="res://Scripts/Toolbar/CameraZoom.gd" id="3_cpnu5"]
 [ext_resource type="PackedScene" uid="uid://jefplpo2lu1y" path="res://Scenes/Node Area.tscn" id="4_2g33g"]
 [ext_resource type="Resource" uid="uid://3giehi2so4s8" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Int.tres" id="4_5jvyq"]
 [ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/Toolbar/QuitButton.gd" id="4_cpnu5"]
 [ext_resource type="Script" uid="uid://16b5h82rjjeq" path="res://Scripts/Toolbar/RecenterCamButton.gd" id="4_hicjc"]
 [ext_resource type="Resource" uid="uid://r3ufqbs7nkug" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Int.tres" id="5_ae4ha"]
-[ext_resource type="Resource" uid="uid://byrenuw3drdah" path="res://Scripts/CNodes/C Node Defs/CND_Subtract.tres" id="6_h2rv7"]
-[ext_resource type="Resource" uid="uid://5tcmio0qcmtw" path="res://Scripts/CNodes/C Node Defs/CND_Multiply.tres" id="7_rnwal"]
-[ext_resource type="Resource" uid="uid://7p5vb42kun4t" path="res://Scripts/CNodes/C Node Defs/CND_Divide.tres" id="8_0dtrj"]
+[ext_resource type="Resource" uid="uid://byrenuw3drdah" path="res://Scripts/CNodes/C Node Defs/Math/CND_Subtract.tres" id="6_h2rv7"]
+[ext_resource type="Resource" uid="uid://5tcmio0qcmtw" path="res://Scripts/CNodes/C Node Defs/Math/CND_Multiply.tres" id="7_rnwal"]
+[ext_resource type="Resource" uid="uid://7p5vb42kun4t" path="res://Scripts/CNodes/C Node Defs/Math/CND_Divide.tres" id="8_0dtrj"]
+[ext_resource type="Resource" uid="uid://bbifjfmw7p6bb" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Bool.tres" id="9_rnwal"]
+[ext_resource type="Resource" uid="uid://bw5m10lc2q4mf" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Bool.tres" id="10_0dtrj"]
+[ext_resource type="Resource" uid="uid://b4wvvtxd13bx7" path="res://Scripts/CNodes/C Node Defs/Logic/CND_And.tres" id="11_nobqo"]
+[ext_resource type="Resource" uid="uid://x6lvo3qns8kp" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Or.tres" id="12_3av68"]
+[ext_resource type="Resource" uid="uid://dqs4x52kek0gp" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Xor.tres" id="13_pdh8r"]
+[ext_resource type="Resource" uid="uid://bx48fa2tmfhpw" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Not.tres" id="14_r6p07"]
+[ext_resource type="Resource" uid="uid://dcp1ilt2aa0cn" path="res://Scripts/CNodes/C Node Defs/Logic/CND_IntEquals.tres" id="15_pdh8r"]
+[ext_resource type="Resource" uid="uid://63wqnw3leds7" path="res://Scripts/CNodes/C Node Defs/Logic/CND_GreaterThan.tres" id="16_r8tlv"]
+[ext_resource type="Resource" uid="uid://dn13hjeyqn7pr" path="res://Scripts/CNodes/C Node Defs/Logic/CND_LessThan.tres" id="17_wtpuo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
@@ -104,16 +113,28 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Node picker" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=968152237 node_paths=PackedStringArray("popup")]
+[node name="Math Nodes" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=968152237 node_paths=PackedStringArray("popup")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Data node"
+text = "Math"
 script = ExtResource("2_rp7uk")
 nodes = Array[ExtResource("2_1ha1s")]([ExtResource("4_5jvyq"), ExtResource("5_ae4ha"), ExtResource("3_6ysdc"), ExtResource("6_h2rv7"), ExtResource("7_rnwal"), ExtResource("8_0dtrj")])
 popup = NodePath("PopupMenu")
 
-[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Node picker" unique_id=1494591544]
+[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Math Nodes" unique_id=1494591544]
+title = "Data Nodes"
+
+[node name="Logic" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1512718632 node_paths=PackedStringArray("popup")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Logic"
+script = ExtResource("2_rp7uk")
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("10_0dtrj"), ExtResource("9_rnwal"), ExtResource("11_nobqo"), ExtResource("12_3av68"), ExtResource("13_pdh8r"), ExtResource("14_r6p07"), ExtResource("15_pdh8r"), ExtResource("16_r8tlv"), ExtResource("17_wtpuo")])
+popup = NodePath("PopupMenu")
+
+[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Logic" unique_id=1363424505]
 title = "Data Nodes"
 
 [node name="VSeparator" type="VSeparator" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=901454897]

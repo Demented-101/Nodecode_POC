@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://cvjdgsafpewil"]
+
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="1_r1lql"]
+
+[resource]
+script = ExtResource("1_r1lql")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

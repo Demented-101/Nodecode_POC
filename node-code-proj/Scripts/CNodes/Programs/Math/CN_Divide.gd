@@ -1,8 +1,5 @@
 extends CNodeProgram
 
-func _ready() -> void:
-	definition = load("uid://byrenuw3drdah")
-
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"A" : CNode.pinTypes.Int,
@@ -19,6 +16,6 @@ func get_output(index:int, depth:int) -> Variant:
 	if err: return err
 	
 	match index:
-		0: return input_values[0] - input_values[1]
+		0: return input_values[0] / input_values[1]
 	
 	return CNError.new(Const.ErrorType.NoExpectedValue, self, depth)

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://7p5vb42kun4t"]
 
-[ext_resource type="Script" uid="uid://ervkfrm3ueds" path="res://Scripts/CNodes/Programs/CN_Divide.gd" id="1_guksd"]
+[ext_resource type="Script" uid="uid://ervkfrm3ueds" path="res://Scripts/CNodes/Programs/Math/CN_Divide.gd" id="1_guksd"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_hirb5"]
 
 [resource]

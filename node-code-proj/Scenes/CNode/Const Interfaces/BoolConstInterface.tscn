@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c5gv5tql5jlr0"]
+
+[ext_resource type="Script" uid="uid://cmj0d5x0txhb6" path="res://Scripts/CNodes/Constants/BoolConstInterface.gd" id="1_6s51v"]
+
+[node name="CheckButton" type="CheckButton" unique_id=1221592371]
+offset_right = 44.0
+offset_bottom = 24.0
+text = "False"
+script = ExtResource("1_6s51v")
