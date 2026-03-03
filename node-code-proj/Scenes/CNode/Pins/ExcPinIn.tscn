@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bgi85t6ida8te"]
+
+[ext_resource type="Script" uid="uid://kommvwtbga0n" path="res://Scripts/CNodes/Pin definitions/ExcPinIn.gd" id="1_yykec"]
+[ext_resource type="Texture2D" uid="uid://cshc3blqmgwu3" path="res://Textures/Generated/Gradients/PinGradExc.tres" id="2_jddig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rc5d"]
+
+[node name="DataPin" type="Node2D" unique_id=362425393 node_paths=PackedStringArray("sprite", "drag_zone")]
+script = ExtResource("1_yykec")
+sprite = NodePath("Sprite2D")
+drag_zone = NodePath("Panel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1060774596]
+texture = ExtResource("2_jddig")
+
+[node name="Panel" type="Panel" parent="." unique_id=480946251]
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5rc5d")
+
+[node name="Label" type="Label" parent="." unique_id=1870321122]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 22.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5764706, 0.15686275, 0, 0.47058824)
+text = ">>"
+horizontal_alignment = 1
+vertical_alignment = 1

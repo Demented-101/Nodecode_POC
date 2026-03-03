@@ -9,6 +9,7 @@ var is_connected:bool ## if the pin has at least one connection
 var type:CNode.pinTypes ## the data-type of the pin
 var cnode:CNode ## the CNode it is connected to
 var index:int ## the index of the pin (top to bottom)
+var pin_name:String ## the given name of the pin
 
 var gradients:Dictionary[CNode.pinTypes, Texture] = { ## stores all the pin gradients
 	CNode.pinTypes.Exc : preload("uid://cshc3blqmgwu3"),
@@ -23,16 +24,17 @@ func _ready() -> void:
 	drag_zone.mouse_entered.connect(drag_handler.pin_hovered.bind(self))
 	drag_zone.mouse_exited.connect(drag_handler.pin_hover_ended.bind(self))
 
-func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int):
+func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int, _name:String):
 	## update the type and cnode of the pin
 	type = _type
 	sprite.texture = gradients[type]
 	cnode = _cnode
 	index = _index
+	pin_name = _name
 
 ## used for being connected + disconnected from a databus
-@abstract func connected(_new_bus:DataBus) -> void
-@abstract func disconnected(_bus:DataBus) -> void
+@abstract func connected(_new_bus:CNodeBus) -> void
+@abstract func disconnected(_bus:CNodeBus) -> void
 
 ## passes on the value
 @abstract func get_value(_depth:int) -> Variant

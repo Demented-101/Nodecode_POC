@@ -4,9 +4,9 @@ class_name CNodeProgram
 
 var output_count:int
 var input_count:int
-var input_pins:Array[DataPinIn]
+var input_pins:Array[CNodePin]
 var input_values:Array
-var output_pins:Array[DataPinOut]
+var output_pins:Array[CNodePin]
 var definition:CNodeDefinition
 
 @abstract func define_inputs() -> Dictionary[String, CNode.pinTypes]

@@ -1,6 +1,5 @@
 extends CNodeProgram
 
-
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"A" : CNode.pinTypes.Bool,

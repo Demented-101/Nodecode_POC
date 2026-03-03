@@ -34,6 +34,9 @@ func _input(event: InputEvent) -> void:
 		if event.is_pressed() and mouse_hovering: start_drag()
 		else: end_drag()
 
+func execute(_definition:String) -> void:
+	pass
+
 func start_drag():
 	if drag_in_use: return
 	
@@ -58,24 +61,34 @@ func populate_pins() -> void:
 	program.output_count = outputs.size()
 	
 	for i:int in program.output_count:
-		var new_out_pin:DataPinOut = DATA_PIN_OUT.instantiate()
+		var new_out_pin:DataPinOut
+		if outputs.values()[i] == pinTypes.Exc:
+			pass
+		else:
+			new_out_pin = DATA_PIN_OUT.instantiate()
+			
 		add_child(new_out_pin)
 		program.output_pins.append(new_out_pin)
 		
 		new_out_pin.position = Vector2(program.definition.width, 65 + (i * 30))
-		new_out_pin.setup(outputs.values()[i], self, i)
+		new_out_pin.setup(outputs.values()[i], self, i, outputs.keys()[i])
 	
 	## setup inputs
 	var inputs:Dictionary[String, pinTypes] = program.define_inputs()
 	program.input_count = inputs.size()
 	
 	for i:int in program.input_count:
-		var new_in_pin:DataPinIn = DATA_PIN_IN.instantiate()
+		var new_in_pin:DataPinIn
+		if inputs.values()[i] == pinTypes.Exc:
+			pass
+		else:
+			new_in_pin = DATA_PIN_IN.instantiate()
+		
 		add_child(new_in_pin)
 		program.input_pins.append(new_in_pin)
 		
 		new_in_pin.position = Vector2(0, 65 + (i * 30))
-		new_in_pin.setup(inputs.values()[i], self, i)
+		new_in_pin.setup(inputs.values()[i], self, i, inputs.keys()[i])
 
 func update_display() -> void:
 	var width:int = program.definition.width

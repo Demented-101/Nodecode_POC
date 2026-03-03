@@ -4,14 +4,14 @@ class_name DataPinOut
 var data_buses:Array[DataBus]
 var connected_pins:Array[DataPinIn]
 
-func connected(new_bus:DataBus) -> void:
+func connected(new_bus:CNodeBus) -> void:
 	is_connected = true
 	data_buses.append(new_bus)
 	connected_pins.append(new_bus.input_pin)
 	
 	new_bus.Disconnected.connect(disconnected)
 
-func disconnected(_bus:DataBus) -> void:
+func disconnected(_bus:CNodeBus) -> void:
 	if !(_bus in data_buses): return ## not connected to this bus
 	
 	data_buses.erase(_bus)
