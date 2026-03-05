@@ -19,17 +19,16 @@ func disconnected(_bus:CNodeBus) -> void:
 	connected_pin = null
 	is_connected = false
 
+func execute() -> void:
+	await ExecutionHandler.instance.execute
+	connected_pin.execute()
+	exc_icon.modulate.a = 1
+
+func _process(delta: float) -> void:
+	exc_icon.modulate.a = clampf(exc_icon.modulate.a - (delta * 2), 0, 0.9)
+
 func get_value(depth:int) -> Variant:
-	if type == CNode.pinTypes.Exc: return CNError.new(Const.ErrorType.TypeError, self, depth) ## exc has no return value
-	if is_connected: return connected_pin.get_value(depth)
-	
-	## define default values
-	match type:
-		CNode.pinTypes.Bool: return false
-		CNode.pinTypes.Int: return 0
-		CNode.pinTypes._String: return ""
-	
-	return CNError.new(Const.ErrorType.TypeError, self, depth)
+	return CNError.new(Const.ErrorType.TypeError, self, depth) ## exc has no return value
 
 func on_clicked() -> void:
 	if execution_bus:

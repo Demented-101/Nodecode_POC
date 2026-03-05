@@ -17,7 +17,7 @@ func populate_pins() -> void:
 	program.output_pins = [output]
 	
 	output.position = Vector2(program.definition.width, 37)
-	output.setup(outputs.values()[0], self, 0)
+	output.setup(outputs.values()[0], self, 0, output.keys()[0])
 
 func update_display() -> void:
 	var width:int = program.definition.width

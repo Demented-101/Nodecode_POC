@@ -4,6 +4,8 @@ class_name CNode
 enum pinTypes {Exc, Bool, Int, _String}
 
 const C_NODE := preload("uid://dy4tla84v3wg6")
+const EXC_PIN_IN = preload("uid://bgi85t6ida8te")
+const EXC_PIN_OUT = preload("uid://bpi8wby02b6ld")
 const DATA_PIN_IN = preload("uid://dju7ohku7vqkp")
 const DATA_PIN_OUT = preload("uid://c5eg8t1gmea44")
 var program:CNodeProgram
@@ -34,9 +36,6 @@ func _input(event: InputEvent) -> void:
 		if event.is_pressed() and mouse_hovering: start_drag()
 		else: end_drag()
 
-func execute(_definition:String) -> void:
-	pass
-
 func start_drag():
 	if drag_in_use: return
 	
@@ -61,9 +60,9 @@ func populate_pins() -> void:
 	program.output_count = outputs.size()
 	
 	for i:int in program.output_count:
-		var new_out_pin:DataPinOut
+		var new_out_pin:CNodePin
 		if outputs.values()[i] == pinTypes.Exc:
-			pass
+			new_out_pin = EXC_PIN_OUT.instantiate()
 		else:
 			new_out_pin = DATA_PIN_OUT.instantiate()
 			
@@ -78,9 +77,9 @@ func populate_pins() -> void:
 	program.input_count = inputs.size()
 	
 	for i:int in program.input_count:
-		var new_in_pin:DataPinIn
+		var new_in_pin:CNodePin
 		if inputs.values()[i] == pinTypes.Exc:
-			pass
+			new_in_pin = EXC_PIN_IN.instantiate()
 		else:
 			new_in_pin = DATA_PIN_IN.instantiate()
 		

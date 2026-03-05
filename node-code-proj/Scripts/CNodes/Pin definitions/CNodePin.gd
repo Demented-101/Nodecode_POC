@@ -38,6 +38,7 @@ func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int, _name:String):
 
 ## passes on the value
 @abstract func get_value(_depth:int) -> Variant
+func execute() -> void: return
 
 ## used when the mouse clicks on the pin
 @abstract func on_clicked() -> void

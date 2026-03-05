@@ -22,7 +22,7 @@ func disconnected(_bus:CNodeBus) -> void:
 	_bus.Disconnected.disconnect(disconnected)
 
 func execute() -> void:
-	cnode.execute(pin_name)
+	cnode.program.execute(pin_name)
 	exc_icon.modulate.a = 1
 
 func _process(delta: float) -> void:

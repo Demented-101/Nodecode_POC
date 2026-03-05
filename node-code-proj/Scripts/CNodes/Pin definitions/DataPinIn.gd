@@ -4,14 +4,14 @@ class_name DataPinIn
 var data_bus:DataBus
 var connected_pin:DataPinOut
 
-func connected(new_bus:DataBus) -> void:
+func connected(new_bus:CNodeBus) -> void:
 	is_connected = true
 	data_bus = new_bus
 	connected_pin = new_bus.output_pin
 	
 	new_bus.Disconnected.connect(disconnected)
 
-func disconnected(_bus:DataBus) -> void:
+func disconnected(_bus:CNodeBus) -> void:
 	if _bus != data_bus: return ## make sure its the correct data bus
 	
 	data_bus = null

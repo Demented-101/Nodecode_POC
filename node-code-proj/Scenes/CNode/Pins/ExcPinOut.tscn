@@ -5,8 +5,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rc5d"]
 
-[node name="DataPin" type="Node2D" unique_id=362425393 node_paths=PackedStringArray("sprite", "drag_zone")]
+[node name="DataPin" type="Node2D" unique_id=362425393 node_paths=PackedStringArray("exc_icon", "sprite", "drag_zone")]
 script = ExtResource("1_0v2he")
+exc_icon = NodePath("Label")
 sprite = NodePath("Sprite2D")
 drag_zone = NodePath("Panel")
 

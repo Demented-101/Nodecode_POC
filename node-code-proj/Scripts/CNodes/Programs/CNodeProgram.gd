@@ -24,3 +24,6 @@ func verify_inputs(amount:int, depth:int) -> CNError:
 		if input_values[i] is CNError: return input_values[i]
 	
 	return null
+
+func execute(_function:String) -> void:
+	return
