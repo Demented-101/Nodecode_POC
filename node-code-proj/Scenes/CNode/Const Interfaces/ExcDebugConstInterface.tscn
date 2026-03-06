@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bwaootj3fukhh"]
+
+[ext_resource type="Script" uid="uid://c37ddgc258jwm" path="res://Scripts/CNodes/Constants/ExcDebugConstInterface.gd" id="1_pnp70"]
+
+[node name="Button" type="Button" unique_id=1990719122]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "RUN >>>"
+script = ExtResource("1_pnp70")

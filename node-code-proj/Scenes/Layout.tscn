@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://f4j6nro81645"]
 
+[ext_resource type="Script" uid="uid://dlvxitvshkaya" path="res://Scripts/ExecutionHandler.gd" id="1_4o32a"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_1ha1s"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/Toolbar/NodeSelector.gd" id="2_rp7uk"]
 [ext_resource type="Resource" uid="uid://btrvmb72bv3qm" path="res://Scripts/CNodes/C Node Defs/Math/CND_Add.tres" id="3_6ysdc"]
@@ -8,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://3giehi2so4s8" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Int.tres" id="4_5jvyq"]
 [ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/Toolbar/QuitButton.gd" id="4_cpnu5"]
 [ext_resource type="Script" uid="uid://16b5h82rjjeq" path="res://Scripts/Toolbar/RecenterCamButton.gd" id="4_hicjc"]
+[ext_resource type="Resource" uid="uid://cadqgt8tah6iy" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogInt.tres" id="5_5vvak"]
 [ext_resource type="Resource" uid="uid://r3ufqbs7nkug" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Int.tres" id="5_ae4ha"]
 [ext_resource type="Resource" uid="uid://byrenuw3drdah" path="res://Scripts/CNodes/C Node Defs/Math/CND_Subtract.tres" id="6_h2rv7"]
 [ext_resource type="Resource" uid="uid://5tcmio0qcmtw" path="res://Scripts/CNodes/C Node Defs/Math/CND_Multiply.tres" id="7_rnwal"]
@@ -21,7 +23,9 @@
 [ext_resource type="Resource" uid="uid://dcp1ilt2aa0cn" path="res://Scripts/CNodes/C Node Defs/Logic/CND_IntEquals.tres" id="15_pdh8r"]
 [ext_resource type="Resource" uid="uid://63wqnw3leds7" path="res://Scripts/CNodes/C Node Defs/Logic/CND_GreaterThan.tres" id="16_r8tlv"]
 [ext_resource type="Resource" uid="uid://dn13hjeyqn7pr" path="res://Scripts/CNodes/C Node Defs/Logic/CND_LessThan.tres" id="17_wtpuo"]
-[ext_resource type="Resource" uid="uid://n3pc0jpo4giw" path="res://Scripts/CNodes/C Node Defs/CND_LogDebug.tres" id="18_wtpuo"]
+[ext_resource type="Resource" uid="uid://n3pc0jpo4giw" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogDebug.tres" id="18_wtpuo"]
+[ext_resource type="Resource" uid="uid://ohq0oudbu0qw" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Exc.tres" id="19_vjhmg"]
+[ext_resource type="Resource" uid="uid://thq6vt7k7kuo" path="res://Scripts/CNodes/C Node Defs/Constants/_CCND_ExcButton.tres" id="22_na5hx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
@@ -41,6 +45,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ExecutionHandler" type="Node" parent="." unique_id=1361006201 node_paths=PackedStringArray("log_label")]
+script = ExtResource("1_4o32a")
+log_label = NodePath("../HSplitContainer/VBoxContainer/PanelContainer/Label")
+metadata/_custom_type_script = "uid://dlvxitvshkaya"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=89994418]
 layout_mode = 1
@@ -114,6 +123,18 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
+[node name="Execution" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1907049862 node_paths=PackedStringArray("popup")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Execution"
+script = ExtResource("2_rp7uk")
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_5vvak")])
+popup = NodePath("PopupMenu")
+
+[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Execution" unique_id=2037209084]
+title = "Data Nodes"
+
 [node name="Math Nodes" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=968152237 node_paths=PackedStringArray("popup")]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -144,7 +165,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Debug!!"
 script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("18_wtpuo")])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("18_wtpuo"), ExtResource("22_na5hx")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/debug" unique_id=1094346639]
@@ -228,3 +249,16 @@ render_target_update_mode = 4
 
 [node name="NodeArea" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
 position = Vector2(525, 384)
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=944092727]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+horizontal_alignment = 2
+
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="ExecutionHandler" method="Start_Execution"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" method="set_disabled" binds= [true]]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" method="set_disabled" binds= [false]]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" to="ExecutionHandler" method="End_Execution"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" method="set_disabled" binds= [false]]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" method="set_disabled" binds= [true]]

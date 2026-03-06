@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://thq6vt7k7kuo"]
+
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="1_sg7m0"]
+[ext_resource type="Script" uid="uid://id3ak2c0316r" path="res://Scripts/CNodes/Constants/Programs/CCN_ExcDebugButton.gd" id="1_y26h4"]
+
+[resource]
+script = ExtResource("1_sg7m0")
+display_name = "Exc Button"
+width = 200
+program_script = ExtResource("1_y26h4")
+cnode_type = 1
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

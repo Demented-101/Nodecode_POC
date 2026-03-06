@@ -2,15 +2,16 @@ extends CNodePin
 class_name ExecutionPinOut
 
 var execution_bus:ExecutionBus
-var connected_pin:DataPinOut
+var connected_pin:ExecutionPinIn
 @export var exc_icon:CanvasItem
 
 func connected(new_bus:CNodeBus) -> void:
 	is_connected = true
 	execution_bus = new_bus
-	connected_pin = new_bus.output_pin
+	connected_pin = new_bus.input_pin
 	
 	new_bus.Disconnected.connect(disconnected)
+	print(connected_pin)
 
 func disconnected(_bus:CNodeBus) -> void:
 	if _bus != execution_bus: return ## make sure its the correct data bus
@@ -20,9 +21,8 @@ func disconnected(_bus:CNodeBus) -> void:
 	is_connected = false
 
 func execute() -> void:
-	await ExecutionHandler.instance.execute
-	connected_pin.execute()
-	exc_icon.modulate.a = 1
+	if !is_connected: return
+	ExecutionHandler.instance.queue_pin(execution_bus)
 
 func _process(delta: float) -> void:
 	exc_icon.modulate.a = clampf(exc_icon.modulate.a - (delta * 2), 0, 0.9)

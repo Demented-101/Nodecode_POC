@@ -62,8 +62,11 @@ func end_drag() -> void:
 	
 	if !was_click:
 		if DataBus.check_pin_validity(pin, hovered_pin):
-			if pin is DataPinOut: create_connection(pin, hovered_pin)
-			else: create_connection(hovered_pin, pin)
+			if pin is DataPinOut: create_connection(pin, hovered_pin, false)
+			else: create_connection(hovered_pin, pin, false)
+		elif ExecutionBus.check_pin_validity(pin, hovered_pin):
+			if pin is ExecutionPinOut: create_connection(pin, hovered_pin, true)
+			else: create_connection(hovered_pin, pin, true)
 	else:
 		hovered_pin.on_clicked()
 
@@ -73,11 +76,15 @@ func pin_hovered(target_pin:CNodePin) -> void:
 func pin_hover_ended(target_pin:CNodePin) -> void:
 	if hovered_pin == target_pin: hovered_pin = null
 
-func create_connection(output_pin:DataPinOut, input_pin:DataPinIn) -> void:
-	var new_bus = DataBus.new()
-	
-	if input_pin.data_bus != null:
-		input_pin.data_bus.remove()
+func create_connection(output_pin:CNodePin, input_pin:CNodePin, is_execution:bool) -> void:
+	var new_bus 
+	if is_execution:
+		print("hello")
+		new_bus = ExecutionBus.new()
+		if output_pin.execution_bus != null: output_pin.execution_bus.remove()
+	else:
+		new_bus = DataBus.new()
+		if input_pin.data_bus != null: input_pin.data_bus.remove()
 	
 	output_pin.add_child(new_bus)
 	new_bus.create(output_pin, input_pin)

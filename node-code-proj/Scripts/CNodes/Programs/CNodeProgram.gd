@@ -20,8 +20,11 @@ func verify_inputs(amount:int, depth:int) -> CNError:
 		var pin := input_pins[i]
 		if pin == null: return CNError.new(Const.ErrorType.PinValidityError, self)
 		
-		input_values.append(pin.get_value(depth))
-		if input_values[i] is CNError: return input_values[i]
+		if pin.type == CNode.pinTypes.Exc:
+			input_values.append(CNError.new(Const.ErrorType.NoExpectedValue, self, depth))
+		else:
+			input_values.append(pin.get_value(depth))
+			if input_values[i] is CNError: return input_values[i]
 	
 	return null
 

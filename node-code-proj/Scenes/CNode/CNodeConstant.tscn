@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://xll8hrmggkrk" path="res://Scripts/CNodes/Constants/ConstCNode.gd" id="1_5jqdi"]
 [ext_resource type="Texture2D" uid="uid://bnfo4lk3uusk3" path="res://Textures/Generated/Gradients/HeaderGrad.tres" id="2_sakvp"]
 
-[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("line_edit", "container", "drag_zone", "header", "body", "title_label")]
+[node name="CNode" type="Node2D" unique_id=1871218423 node_paths=PackedStringArray("container", "drag_zone", "header", "body", "title_label")]
 script = ExtResource("1_5jqdi")
-line_edit = NodePath("")
 container = NodePath("Header/MarginContainer/VBoxContainer")
 drag_zone = NodePath("Header/MarginContainer")
 header = NodePath("Header")
@@ -24,12 +23,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_default_cursor_shape = 6
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 5
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Header/MarginContainer" unique_id=1411879920]
 layout_mode = 2
+size_flags_vertical = 0
 alignment = 1
 
 [node name="Label" type="Label" parent="Header/MarginContainer/VBoxContainer" unique_id=277576360]
