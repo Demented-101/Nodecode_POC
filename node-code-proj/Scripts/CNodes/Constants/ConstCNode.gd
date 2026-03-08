@@ -26,6 +26,7 @@ func populate_pins() -> void:
 func update_display() -> void:
 	var height:int = 80
 	var width:int = program.definition.width
+	size = Vector2(width, height)
 	
 	## setup interface
 	if program is ConstantProgram: 

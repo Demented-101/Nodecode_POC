@@ -18,6 +18,7 @@ var program:CNodeProgram
 var mouse_hovering:bool = false
 var is_dragging:bool = false
 var drag_offset:Vector2
+var size:Vector2
 static var drag_in_use:bool = false
 
 func _ready() -> void:
@@ -92,6 +93,7 @@ func populate_pins() -> void:
 func update_display() -> void:
 	var width:int = program.definition.width
 	var height:int = 20 + (max(program.input_count, program.output_count) * 30)
+	size = Vector2(width, height)
 	
 	header.polygon = [
 		Vector2(width, 0), Vector2(width, 40), Vector2(0, 40), Vector2(0, 0)

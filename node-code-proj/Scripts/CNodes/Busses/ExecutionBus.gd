@@ -1,10 +1,9 @@
 extends CNodeBus
 class_name ExecutionBus
 
-var brightness:float = 0
-
-const COLOR_BRIGHT:Color = Color(1.0, 0.81, 0.632, 1.0)
-const COLOR_NORMAL:Color = Color(0.866, 0.339, 0.0, 1.0)
+func _ready() -> void:
+	color_normal = Color(0.866, 0.339, 0.0, 1.0)
+	color_bright = Color(1.0, 0.81, 0.632, 1.0)
 
 func create(_out:CNodePin, _in:CNodePin) -> void:
 	output_pin = _out
@@ -16,8 +15,6 @@ func create(_out:CNodePin, _in:CNodePin) -> void:
 	width = 4
 	begin_cap_mode = Line2D.LINE_CAP_ROUND
 	end_cap_mode = Line2D.LINE_CAP_ROUND
-	
-	modulate = COLOR_NORMAL
 
 func run() -> void:
 	brightness = 1
@@ -26,11 +23,10 @@ func run() -> void:
 	input_pin.exc_icon.modulate.a = 1
 	output_pin.exc_icon.modulate.a = 1
 
-func _process(delta: float) -> void:
-	super._process(delta)
-	
-	brightness = clampf(brightness - (delta * 2), 0, 0.9)
-	modulate = COLOR_NORMAL.lerp(COLOR_BRIGHT, brightness)
+func remove() -> void:
+	super.remove()
+	if self in ExecutionHandler.instance.queue:
+		ExecutionHandler.instance.queue.erase(self)
 
 static func check_pin_validity(pinA:CNodePin, pinB:CNodePin) -> bool:
 	if pinA == null or pinB == null: return false ## validity check

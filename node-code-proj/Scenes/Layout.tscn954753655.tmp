@@ -253,6 +253,7 @@ position = Vector2(525, 384)
 [node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=944092727]
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 1
 horizontal_alignment = 2
 
 [connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="ExecutionHandler" method="Start_Execution"]

@@ -9,6 +9,10 @@ var gradients:Dictionary[CNode.pinTypes, Texture] = {
 	CNode.pinTypes.Int : preload("uid://dtq01u6dywh6x"),
 	CNode.pinTypes._String : preload("uid://b7lofff33r0d3")
 }
+var brightness:float = 0
+var color_bright:Color = Color.WHITE
+var color_normal:Color = Color.BLACK
+
 var input_pin:CNodePin
 var output_pin:CNodePin
 
@@ -18,9 +22,12 @@ func remove() -> void:
 	Disconnected.emit(self)
 	queue_free()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	global_position = Vector2(0,0)
 	points = [output_pin.global_position, input_pin.global_position]
+	
+	brightness = clampf(brightness - (delta * 2), 0, 0.9)
+	modulate = color_normal.lerp(color_bright, brightness)
 
 static func check_pin_validity(_pinA:CNodePin, _pinB:CNodePin) -> bool:
 	return false

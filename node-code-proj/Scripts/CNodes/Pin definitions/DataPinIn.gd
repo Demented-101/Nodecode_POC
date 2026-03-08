@@ -20,7 +20,9 @@ func disconnected(_bus:CNodeBus) -> void:
 
 func get_value(depth:int) -> Variant:
 	if type == CNode.pinTypes.Exc: return CNError.new(Const.ErrorType.TypeError, self, depth) ## exc has no return value
-	if is_connected: return connected_pin.get_value(depth)
+	if is_connected: 
+		data_bus.brightness = 1
+		return connected_pin.get_value(depth)
 	
 	## define default values
 	match type:

@@ -21,7 +21,7 @@ func execute(_function:String) -> void:
 	
 	var err = verify_inputs(2, 0)
 	if err is CNError: 
-		printerr(err)
+		ExecutionHandler.instance.add_log(err.get_simple_error_string())
 		return
 	
 	ExecutionHandler.instance.add_log(str( input_values[1] ))

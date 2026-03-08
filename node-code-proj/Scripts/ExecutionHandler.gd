@@ -2,6 +2,7 @@ extends Node
 class_name ExecutionHandler
 
 @export var log_label:Label
+@export var debug_print:bool
 
 signal execution_started
 signal execution_ended
@@ -40,12 +41,14 @@ func _process(delta: float) -> void:
 		
 		var queue_clone = queue.duplicate(false)
 		queue = []
-		for i in queue_clone: i.run() 
+		for i in queue_clone:
+			i.run() 
 
 func queue_pin(bus:ExecutionBus) -> void:
 	queue.append(bus)
 
 func add_log(new_log:String) -> void:
+	if debug_print: print("--> ", new_log)
 	logs.append(new_log)
 	if logs.size() > 20: logs.remove_at(0)
 	

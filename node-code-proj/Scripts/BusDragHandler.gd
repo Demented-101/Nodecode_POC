@@ -35,7 +35,7 @@ func start_drag() -> void:
 	
 	line.z_index = 1
 	pin.z_index = 2
-	line.default_color = Color(0.646, 0.646, 0.646, 0.8)
+	line.default_color = Color(0.646, 0.646, 0.646)
 	line.width = 5
 	
 	line.position = Vector2(0,0)
@@ -79,7 +79,6 @@ func pin_hover_ended(target_pin:CNodePin) -> void:
 func create_connection(output_pin:CNodePin, input_pin:CNodePin, is_execution:bool) -> void:
 	var new_bus 
 	if is_execution:
-		print("hello")
 		new_bus = ExecutionBus.new()
 		if output_pin.execution_bus != null: output_pin.execution_bus.remove()
 	else:
