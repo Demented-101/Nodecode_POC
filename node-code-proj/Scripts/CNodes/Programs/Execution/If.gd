@@ -3,19 +3,20 @@ extends CNodeProgram
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"Run" : CNode.pinTypes.Exc,
-		"Value" : CNode.pinTypes.Int,
+		"Switch" : CNode.pinTypes.Bool,
 	}
 
 func define_outputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
-		"Out" : CNode.pinTypes.Exc
+		"True" : CNode.pinTypes.Exc,
+		"False" : CNode.pinTypes.Exc,
 	}
 
 func get_output(_index:int, depth:int) -> Variant:
 	return CNError.new(Const.ErrorType.NoExpectedValue, self, depth)
 
 func execute(_function:String) -> void:
-	if _function != "Run": 
+	if _function != "Run":
 		printerr("Invalid function run")
 		return
 	
@@ -24,5 +25,4 @@ func execute(_function:String) -> void:
 		ExecutionHandler.instance.add_error_log(err)
 		return
 	
-	ExecutionHandler.instance.add_log(str( input_values[1] ))
-	output_pins[0].execute()
+	output_pins[0 if input_values[1] else 1].execute()

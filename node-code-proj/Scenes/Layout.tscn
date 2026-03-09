@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://16b5h82rjjeq" path="res://Scripts/Toolbar/RecenterCamButton.gd" id="4_hicjc"]
 [ext_resource type="Resource" uid="uid://cadqgt8tah6iy" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogInt.tres" id="5_5vvak"]
 [ext_resource type="Resource" uid="uid://r3ufqbs7nkug" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Int.tres" id="5_ae4ha"]
+[ext_resource type="Resource" uid="uid://dx37n3iuihavm" path="res://Scripts/CNodes/C Node Defs/Execution/CND_If.tres" id="5_vjqbb"]
+[ext_resource type="Resource" uid="uid://ciifmwa86tnxs" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogBool.tres" id="6_3bdn3"]
 [ext_resource type="Resource" uid="uid://byrenuw3drdah" path="res://Scripts/CNodes/C Node Defs/Math/CND_Subtract.tres" id="6_h2rv7"]
 [ext_resource type="Resource" uid="uid://5tcmio0qcmtw" path="res://Scripts/CNodes/C Node Defs/Math/CND_Multiply.tres" id="7_rnwal"]
 [ext_resource type="Resource" uid="uid://7p5vb42kun4t" path="res://Scripts/CNodes/C Node Defs/Math/CND_Divide.tres" id="8_0dtrj"]
@@ -129,7 +131,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Execution"
 script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_5vvak")])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_vjqbb"), ExtResource("5_5vvak"), ExtResource("6_3bdn3")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Execution" unique_id=2037209084]

@@ -10,7 +10,7 @@ var is_running:bool
 
 var exec_speed:float = 1
 var timer:float
-var queue:Array[ExecutionBus]
+var next:ExecutionBus
 var logs:Array[String] = []
 
 static var instance:ExecutionHandler
@@ -23,13 +23,13 @@ func _ready() -> void:
 func Start_Execution() -> void:
 	timer = 0
 	is_running = true
-	queue = []
+	next = null
 	logs = []
 	execution_started.emit()
 
 func End_Execution() -> void:
 	is_running = false
-	queue = []
+	next = null
 	execution_ended.emit()
 
 func _process(delta: float) -> void:
@@ -38,19 +38,23 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= exec_speed:
 		timer = 0
-		
-		var queue_clone = queue.duplicate(false)
-		queue = []
-		for i in queue_clone:
-			i.run() 
+		next.run()
 
 func queue_pin(bus:ExecutionBus) -> void:
-	queue.append(bus)
+	next = bus
 
 func add_log(new_log:String) -> void:
 	if debug_print: print("--> ", new_log)
 	logs.append(new_log)
-	if logs.size() > 20: logs.remove_at(0)
 	
+	if logs.size() > 20: logs.remove_at(0)
+	log_label.text = ""
+	for i in logs: log_label.text += i + "   <- \n"
+
+func add_error_log(error:CNError) -> void:
+	if debug_print: printerr("--> ", error.get_error_string())
+	logs.append(error.get_simple_error_string())
+	
+	if logs.size() > 20: logs.remove_at(0)
 	log_label.text = ""
 	for i in logs: log_label.text += i + "   <- \n"

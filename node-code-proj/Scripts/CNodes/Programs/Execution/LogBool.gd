@@ -3,7 +3,7 @@ extends CNodeProgram
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"Run" : CNode.pinTypes.Exc,
-		"Value" : CNode.pinTypes.Int,
+		"Value" : CNode.pinTypes.Bool,
 	}
 
 func define_outputs() -> Dictionary[String, CNode.pinTypes]:
@@ -24,5 +24,5 @@ func execute(_function:String) -> void:
 		ExecutionHandler.instance.add_error_log(err)
 		return
 	
-	ExecutionHandler.instance.add_log(str( input_values[1] ))
+	ExecutionHandler.instance.add_log("True" if input_values[1] else "False")
 	output_pins[0].execute()
