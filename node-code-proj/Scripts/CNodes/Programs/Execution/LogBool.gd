@@ -21,8 +21,8 @@ func execute(_function:String) -> void:
 	
 	var err = verify_inputs(2, 0)
 	if err is CNError: 
-		ExecutionHandler.instance.add_error_log(err)
+		LogsHandler.instance.add_error_log(err)
 		return
 	
-	ExecutionHandler.instance.add_log("True" if input_values[1] else "False")
+	LogsHandler.instance.add_log("True" if input_values[1] else "False")
 	output_pins[0].execute()

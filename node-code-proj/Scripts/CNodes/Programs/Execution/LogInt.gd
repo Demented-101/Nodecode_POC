@@ -1,4 +1,4 @@
-extends CNodeProgram
+extends CNodeProgram#
 
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
@@ -21,8 +21,8 @@ func execute(_function:String) -> void:
 	
 	var err = verify_inputs(2, 0)
 	if err is CNError: 
-		ExecutionHandler.instance.add_error_log(err)
+		LogsHandler.instance.add_error_log(err)
 		return
 	
-	ExecutionHandler.instance.add_log(str( input_values[1] ))
+	LogsHandler.instance.add_log(str( input_values[1] ))
 	output_pins[0].execute()

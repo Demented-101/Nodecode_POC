@@ -25,8 +25,8 @@ func run() -> void:
 
 func remove() -> void:
 	super.remove()
-	if self in ExecutionHandler.instance.queue:
-		ExecutionHandler.instance.queue.erase(self)
+	if self == ExecutionHandler.instance.next:
+		ExecutionHandler.instance.next = null
 
 static func check_pin_validity(pinA:CNodePin, pinB:CNodePin) -> bool:
 	if pinA == null or pinB == null: return false ## validity check

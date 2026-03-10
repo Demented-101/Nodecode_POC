@@ -13,6 +13,9 @@ var definition:CNodeDefinition
 @abstract func define_outputs() -> Dictionary[String, CNode.pinTypes]
 @abstract func get_output(_index:int, _depth:int) -> Variant
 
+func _ready() -> void:
+	ExecutionHandler.instance.execution_ended.connect(reset)
+
 func verify_inputs(amount:int, depth:int) -> CNError:
 	input_values = []
 	
@@ -28,5 +31,6 @@ func verify_inputs(amount:int, depth:int) -> CNError:
 	
 	return null
 
-func execute(_function:String) -> void:
-	return
+func reset() -> void: return
+
+func execute(_function:String) -> void: return

@@ -1,17 +1,22 @@
 extends Node
 class_name ExecutionHandler
 
-@export var log_label:Label
-@export var debug_print:bool
+@export var start_button:Button
+@export var stop_button:Button
+@export var pause_button:Button
+@export var speed_slider:Slider
 
 signal execution_started
 signal execution_ended
 var is_running:bool
 
-var exec_speed:float = 1
+enum ExecutionStates {Stopped, Running, Paused}
+var current_state:ExecutionStates = ExecutionStates.Stopped
+
+var exec_speed:float = 0.45
 var timer:float
 var next:ExecutionBus
-var logs:Array[String] = []
+var return_queue:Array[CNodeProgram]
 
 static var instance:ExecutionHandler
 func _ready() -> void:
@@ -19,42 +24,70 @@ func _ready() -> void:
 		free()
 		return
 	instance = self
+	
+	start_button.pressed.connect(start_execution)
+	pause_button.pressed.connect(pause_execution)
+	stop_button.pressed.connect(end_execution)
 
-func Start_Execution() -> void:
+func start_execution() -> void:
 	timer = 0
 	is_running = true
-	next = null
-	logs = []
-	execution_started.emit()
+	if current_state == ExecutionStates.Stopped:
+		execution_started.emit()
+	current_state = ExecutionStates.Running
+	
+	start_button.disabled = true
+	pause_button.disabled = false
+	stop_button.disabled = false
 
-func End_Execution() -> void:
+func pause_execution() -> void:
+	timer = 0
+	is_running = false
+	current_state = ExecutionStates.Paused
+	
+	start_button.disabled = false
+	pause_button.disabled = true
+	stop_button.disabled = false
+
+func end_execution() -> void:
 	is_running = false
 	next = null
+	current_state = ExecutionStates.Stopped
 	execution_ended.emit()
+	LogsHandler.instance.clear()
+	
+	start_button.disabled = false
+	pause_button.disabled = true
+	stop_button.disabled = true
+
+func queue_pin(bus:ExecutionBus) -> void: ## set next exc line to execute
+	if !is_running: return
+	next = bus
+
+func queue_as_return(program:CNodeProgram) -> void: ## add program to the return queue
+	if !is_running: return
+	return_queue.append(program)
 
 func _process(delta: float) -> void:
+	exec_speed = 1 - speed_slider.value
 	if !is_running: return
 	
 	timer += delta
 	if timer >= exec_speed:
 		timer = 0
-		next.run()
+		if next != null: execute_next()
+		else: return_back()
 
-func queue_pin(bus:ExecutionBus) -> void:
-	next = bus
+func execute_next() -> void:
+	var to_run = next
+	next = null
+	to_run.run()
 
-func add_log(new_log:String) -> void:
-	if debug_print: print("--> ", new_log)
-	logs.append(new_log)
+func return_back() -> void: 
+	if return_queue.size() < 1:
+		end_execution()
+		return
 	
-	if logs.size() > 20: logs.remove_at(0)
-	log_label.text = ""
-	for i in logs: log_label.text += i + "   <- \n"
-
-func add_error_log(error:CNError) -> void:
-	if debug_print: printerr("--> ", error.get_error_string())
-	logs.append(error.get_simple_error_string())
-	
-	if logs.size() > 20: logs.remove_at(0)
-	log_label.text = ""
-	for i in logs: log_label.text += i + "   <- \n"
+	var return_point := return_queue[-1]
+	return_point.execute("_Returned")
+	return_queue.erase(return_point)

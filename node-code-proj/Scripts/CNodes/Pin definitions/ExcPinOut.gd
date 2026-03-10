@@ -11,7 +11,6 @@ func connected(new_bus:CNodeBus) -> void:
 	connected_pin = new_bus.input_pin
 	
 	new_bus.Disconnected.connect(disconnected)
-	print(connected_pin)
 
 func disconnected(_bus:CNodeBus) -> void:
 	if _bus != execution_bus: return ## make sure its the correct data bus

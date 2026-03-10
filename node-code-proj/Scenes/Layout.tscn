@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://byrenuw3drdah" path="res://Scripts/CNodes/C Node Defs/Math/CND_Subtract.tres" id="6_h2rv7"]
 [ext_resource type="Resource" uid="uid://5tcmio0qcmtw" path="res://Scripts/CNodes/C Node Defs/Math/CND_Multiply.tres" id="7_rnwal"]
 [ext_resource type="Resource" uid="uid://7p5vb42kun4t" path="res://Scripts/CNodes/C Node Defs/Math/CND_Divide.tres" id="8_0dtrj"]
+[ext_resource type="Resource" uid="uid://cscmo5mrsr64l" path="res://Scripts/CNodes/C Node Defs/Execution/CND_Loop.tres" id="8_gxtlj"]
 [ext_resource type="Resource" uid="uid://bbifjfmw7p6bb" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Bool.tres" id="9_rnwal"]
 [ext_resource type="Resource" uid="uid://bw5m10lc2q4mf" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Bool.tres" id="10_0dtrj"]
 [ext_resource type="Resource" uid="uid://b4wvvtxd13bx7" path="res://Scripts/CNodes/C Node Defs/Logic/CND_And.tres" id="11_nobqo"]
@@ -28,6 +29,7 @@
 [ext_resource type="Resource" uid="uid://n3pc0jpo4giw" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogDebug.tres" id="18_wtpuo"]
 [ext_resource type="Resource" uid="uid://ohq0oudbu0qw" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Exc.tres" id="19_vjhmg"]
 [ext_resource type="Resource" uid="uid://thq6vt7k7kuo" path="res://Scripts/CNodes/C Node Defs/Constants/_CCND_ExcButton.tres" id="22_na5hx"]
+[ext_resource type="Script" uid="uid://ca6nnrgcntvro" path="res://Scripts/LogsHandler.gd" id="29_52mhk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
@@ -48,9 +50,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ExecutionHandler" type="Node" parent="." unique_id=1361006201 node_paths=PackedStringArray("log_label")]
+[node name="ExecutionHandler" type="Node" parent="." unique_id=1361006201 node_paths=PackedStringArray("start_button", "stop_button", "pause_button", "speed_slider")]
 script = ExtResource("1_4o32a")
-log_label = NodePath("../HSplitContainer/VBoxContainer/PanelContainer/Label")
+start_button = NodePath("../HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run")
+stop_button = NodePath("../HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop")
+pause_button = NodePath("../HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Pause")
+speed_slider = NodePath("../HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/speed_slider")
 metadata/_custom_type_script = "uid://dlvxitvshkaya"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=89994418]
@@ -131,7 +136,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Execution"
 script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_vjqbb"), ExtResource("5_5vvak"), ExtResource("6_3bdn3")])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_vjqbb"), ExtResource("5_5vvak"), ExtResource("6_3bdn3"), ExtResource("8_gxtlj")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Execution" unique_id=2037209084]
@@ -183,6 +188,13 @@ size_flags_vertical = 4
 text = "Run
 "
 
+[node name="Pause" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1394711315]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+text = "Pause"
+
 [node name="Stop" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1535752511]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -190,6 +202,21 @@ size_flags_vertical = 4
 disabled = true
 text = "Stop
 "
+
+[node name="VSeparator2" type="VSeparator" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=290503282]
+layout_mode = 2
+
+[node name="speed_slider" type="HSlider" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1957250396]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 0.9
+step = 0.01
+value = 0.45
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1245823375]
+layout_mode = 2
+text = "Speed"
 
 [node name="Spacer" type="Control" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1664634720]
 layout_mode = 2
@@ -256,10 +283,4 @@ position = Vector2(525, 384)
 layout_mode = 2
 size_flags_vertical = 0
 horizontal_alignment = 2
-
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="ExecutionHandler" method="Start_Execution"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" method="set_disabled" binds= [true]]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" method="set_disabled" binds= [false]]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" to="ExecutionHandler" method="End_Execution"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Run" method="set_disabled" binds= [false]]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" to="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Stop" method="set_disabled" binds= [true]]
+script = ExtResource("29_52mhk")
