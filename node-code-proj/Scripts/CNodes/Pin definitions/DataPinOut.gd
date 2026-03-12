@@ -20,6 +20,10 @@ func disconnected(_bus:CNodeBus) -> void:
 	
 	_bus.Disconnected.disconnect(disconnected)
 
+func disconnect_all() -> void:
+	if data_buses.size() <= 0: return
+	for i in data_buses: i.remove()
+
 func get_value(depth:int) -> Variant:
 	if depth > Const.allowed_data_depth: return CNError.new(Const.ErrorType.MaxDepth, self, depth)
 	

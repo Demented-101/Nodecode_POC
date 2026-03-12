@@ -21,6 +21,10 @@ func disconnected(_bus:CNodeBus) -> void:
 	
 	_bus.Disconnected.disconnect(disconnected)
 
+func disconnect_all() -> void:
+	if execution_buses.size() <= 0: return
+	for i in execution_buses: i.remove()
+
 func execute() -> void:
 	cnode.program.execute(pin_name)
 

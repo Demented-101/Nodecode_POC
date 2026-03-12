@@ -23,12 +23,9 @@ func update_display() -> void:
 	var width:int = program.definition.width
 	size = Vector2(width, height)
 	
-	header.polygon = [
-		Vector2(width, 0), Vector2(width, 80), Vector2(0, 80), Vector2(0, 0)
-	]
-	header.uv = [
-		Vector2(0, 08), Vector2(0, 0), Vector2(width, 0), Vector2(width, 80)
-	]
+	header.polygon = [ Vector2(width, 0), Vector2(width, 80), Vector2(0, 80), Vector2(0, 0) ]
+	header.uv = [ Vector2(0, 08), Vector2(0, 0), Vector2(width, 0), Vector2(width, 80) ]
+	header.z_index = 1
 	
 	body.hide()
 	

@@ -18,6 +18,9 @@ func disconnected(_bus:CNodeBus) -> void:
 	connected_pin = null
 	is_connected = false
 
+func disconnect_all() -> void:
+	if data_bus != null: data_bus.remove()
+
 func get_value(depth:int) -> Variant:
 	if type == CNode.pinTypes.Exc: return CNError.new(Const.ErrorType.TypeError, self, depth) ## exc has no return value
 	if is_connected: 

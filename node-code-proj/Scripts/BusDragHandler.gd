@@ -3,7 +3,7 @@ class_name BusDragHandler
 
 static var instance:BusDragHandler
 
-var click_timer:float = 0
+var L_click_timer:float = 0
 const hold_duration:float = 0.2
 
 var is_dragging:bool
@@ -24,8 +24,8 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if is_dragging: 
-		click_timer += delta
-		if click_timer > hold_duration: dragging()
+		L_click_timer += delta
+		if L_click_timer > hold_duration: dragging()
 
 func start_drag() -> void:
 	is_dragging = true
@@ -53,12 +53,11 @@ func dragging() -> void:
 
 func end_drag() -> void:
 	if !is_dragging: return
-	var was_click := click_timer <= hold_duration
+	var was_click := L_click_timer <= hold_duration
 	
 	is_dragging = false
 	line.queue_free()
-	pin.z_index = 0
-	click_timer = 0
+	L_click_timer = 0
 	
 	if !was_click:
 		if DataBus.check_pin_validity(pin, hovered_pin):
@@ -67,7 +66,7 @@ func end_drag() -> void:
 		elif ExecutionBus.check_pin_validity(pin, hovered_pin):
 			if pin is ExecutionPinOut: create_connection(pin, hovered_pin, true)
 			else: create_connection(hovered_pin, pin, true)
-	else:
+	elif hovered_pin != null:
 		hovered_pin.on_clicked()
 
 func pin_hovered(target_pin:CNodePin) -> void:
@@ -85,5 +84,5 @@ func create_connection(output_pin:CNodePin, input_pin:CNodePin, is_execution:boo
 		new_bus = DataBus.new()
 		if input_pin.data_bus != null: input_pin.data_bus.remove()
 	
-	output_pin.add_child(new_bus)
+	CNodeEnvironment.instance.add_new_bus(new_bus)
 	new_bus.create(output_pin, input_pin)

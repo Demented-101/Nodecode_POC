@@ -11,9 +11,15 @@ position = Vector2(352, 152)
 script = ExtResource("1_2b68d")
 zoom_max = 2.0
 
-[node name="CNodeEnvironment" type="Node" parent="." unique_id=631882908]
+[node name="CNodeEnvironment" type="Node" parent="." unique_id=631882908 node_paths=PackedStringArray("nodes", "busses")]
 script = ExtResource("1_04pny")
+nodes = NodePath("Node Container")
+busses = NodePath("Bus Container")
 metadata/_custom_type_script = "uid://b8yfaa0anpdvs"
+
+[node name="Node Container" type="Node2D" parent="CNodeEnvironment" unique_id=1839374719]
+
+[node name="Bus Container" type="Node2D" parent="CNodeEnvironment" unique_id=766636230]
 
 [node name="BusDragHandler" type="Node" parent="." unique_id=1017300907]
 script = ExtResource("5_go0ta")

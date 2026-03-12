@@ -23,6 +23,7 @@ func _ready() -> void:
 	var drag_handler:BusDragHandler = BusDragHandler.instance
 	drag_zone.mouse_entered.connect(drag_handler.pin_hovered.bind(self))
 	drag_zone.mouse_exited.connect(drag_handler.pin_hover_ended.bind(self))
+	z_index = 1
 
 func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int, _name:String):
 	## update the type and cnode of the pin
@@ -35,6 +36,7 @@ func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int, _name:String):
 ## used for being connected + disconnected from a databus
 @abstract func connected(_new_bus:CNodeBus) -> void
 @abstract func disconnected(_bus:CNodeBus) -> void
+@abstract func disconnect_all() -> void
 
 ## passes on the value
 @abstract func get_value(_depth:int) -> Variant

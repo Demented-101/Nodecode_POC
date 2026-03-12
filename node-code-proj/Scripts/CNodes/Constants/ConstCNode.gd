@@ -41,12 +41,9 @@ func update_display() -> void:
 			height = 50
 			program.output_pins[0].position.y = 25
 	
-	header.polygon = [
-		Vector2(width, 0), Vector2(width, height), Vector2(0, height), Vector2(0, 0)
-	]
-	header.uv = [
-		Vector2(0, height), Vector2(0, 0), Vector2(width, 0), Vector2(width, height)
-	]
+	header.polygon = [ Vector2(width, 0), Vector2(width, height), Vector2(0, height), Vector2(0, 0) ]
+	header.uv = [ Vector2(0, height), Vector2(0, 0), Vector2(width, 0), Vector2(width, height) ]
+	header.z_index = 1
 	
 	body.hide()
 	

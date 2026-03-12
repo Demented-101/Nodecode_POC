@@ -11,7 +11,6 @@ func create(_out:CNodePin, _in:CNodePin) -> void:
 	input_pin = _in
 	input_pin.connected(self)
 	
-	z_index = 2
 	width = 4
 	begin_cap_mode = Line2D.LINE_CAP_ROUND
 	end_cap_mode = Line2D.LINE_CAP_ROUND

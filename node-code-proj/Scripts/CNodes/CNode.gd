@@ -8,6 +8,7 @@ const EXC_PIN_IN = preload("uid://bgi85t6ida8te")
 const EXC_PIN_OUT = preload("uid://bpi8wby02b6ld")
 const DATA_PIN_IN = preload("uid://dju7ohku7vqkp")
 const DATA_PIN_OUT = preload("uid://c5eg8t1gmea44")
+var popup:PopupMenu
 var program:CNodeProgram
 
 @export var drag_zone:Container
@@ -27,6 +28,7 @@ func _ready() -> void:
 
 func set_program(_program:CNodeProgram) -> void:
 	program = _program
+	program.cnode = self
 	add_child(program)
 	
 	populate_pins()
@@ -36,6 +38,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action(&"L_click"):
 		if event.is_pressed() and mouse_hovering: start_drag()
 		else: end_drag()
+	
+	if event.is_action(&"R_click") and event.is_action_released(&"R_click") and mouse_hovering and !is_dragging:
+		popup_actions()
 
 func start_drag():
 	if drag_in_use: return
@@ -95,19 +100,36 @@ func update_display() -> void:
 	var height:int = 20 + (max(program.input_count, program.output_count) * 30)
 	size = Vector2(width, height)
 	
-	header.polygon = [
-		Vector2(width, 0), Vector2(width, 40), Vector2(0, 40), Vector2(0, 0)
-	]
-	header.uv = [
-		Vector2(0, 40), Vector2(0, 0), Vector2(width, 0), Vector2(width, 40)
-	]
+	header.polygon = [ Vector2(width, 0), Vector2(width, 40), Vector2(0, 40), Vector2(0, 0) ]
+	header.uv = [ Vector2(0, 40), Vector2(0, 0), Vector2(width, 0), Vector2(width, 40) ]
+	header.z_index = 1
 	
-	body.polygon = [
-		Vector2(width, 0), Vector2(width, height), Vector2(0, height), Vector2(0, 0)
-	]
-	body.uv = [
-		Vector2(0, height), Vector2(0, 0), Vector2(width, 0), Vector2(width, height)
-	]
+	body.polygon = [ Vector2(width, 0), Vector2(width, height), Vector2(0, height), Vector2(0, 0) ]
+	body.uv = [ Vector2(0, height), Vector2(0, 0), Vector2(width, 0), Vector2(width, height) ]
+	body.z_index = 1
 	
 	drag_zone.size.x = width
 	title_label.text = program.definition.display_name
+
+func popup_actions() -> void:
+	popup = PopupMenu.new()
+	get_tree().root.add_child(popup)
+	popup.title = program.definition.display_name
+	for i in program.define_actions(): popup.add_item(i)
+	
+	var mouse_position:Vector2i = get_tree().root.get_mouse_position()
+	popup.popup(Rect2i(mouse_position.x, mouse_position.y, popup.size.x, popup.size.y))
+	popup.popup_hide.connect(popup_closed)
+	popup.index_pressed.connect(action_selected)
+
+func action_selected(index:int) -> void:
+	program.run_action(program.define_actions()[index])
+
+func popup_closed() -> void:
+	popup.queue_free()
+	popup = null
+
+## R-click functions:
+##	- disconnect all
+##	- delete
+##	- clone

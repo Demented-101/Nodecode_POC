@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://cscmo5mrsr64l"]
 
-[ext_resource type="Script" uid="uid://j77436rc3125" path="res://Scripts/CNodes/Programs/Execution/Loop.gd" id="1_lg4wl"]
+[ext_resource type="Script" path="res://Scripts/CNodes/Programs/Execution/Loop.gd" id="1_lg4wl"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="1_yiylx"]
 
 [resource]

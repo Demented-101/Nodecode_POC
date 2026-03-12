@@ -8,6 +8,7 @@ var input_pins:Array[CNodePin]
 var input_values:Array
 var output_pins:Array[CNodePin]
 var definition:CNodeDefinition
+var cnode:CNode
 
 @abstract func define_inputs() -> Dictionary[String, CNode.pinTypes]
 @abstract func define_outputs() -> Dictionary[String, CNode.pinTypes]
@@ -31,6 +32,22 @@ func verify_inputs(amount:int, depth:int) -> CNError:
 	
 	return null
 
+func define_actions() -> Array[String]:
+	return [
+		"Clone", "Delete", "Disconnect All",
+	]
+
 func reset() -> void: return
 
 func execute(_function:String) -> void: return
+func run_action(_action:String) -> void:
+	match(_action):
+		"Clone":
+			CNodeEnvironment.instance.add_new_CNode(definition)
+		"Delete":
+			if input_pins.size() > 0: for i in input_pins: i.disconnect_all()
+			if output_pins.size() > 0: for i in output_pins: i.disconnect_all()
+			cnode.queue_free()
+		"Disconnect All":
+			if input_pins.size() > 0: for i in input_pins: i.disconnect_all()
+			if output_pins.size() > 0: for i in output_pins: i.disconnect_all()

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://ciifmwa86tnxs"]
 
-[ext_resource type="Script" uid="uid://demk4njr33go" path="res://Scripts/CNodes/Programs/Execution/LogBool.gd" id="1_ct3li"]
+[ext_resource type="Script" path="res://Scripts/CNodes/Programs/Execution/LogBool.gd" id="1_ct3li"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_txm3e"]
 
 [resource]

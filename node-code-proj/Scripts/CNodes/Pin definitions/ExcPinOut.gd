@@ -19,6 +19,9 @@ func disconnected(_bus:CNodeBus) -> void:
 	connected_pin = null
 	is_connected = false
 
+func disconnect_all() -> void:
+	if execution_bus != null: execution_bus.remove()
+
 func execute() -> void:
 	if !is_connected: return
 	ExecutionHandler.instance.queue_pin(execution_bus)

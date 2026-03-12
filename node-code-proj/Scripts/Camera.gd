@@ -4,9 +4,10 @@ class_name NodeEnvironmentCamera
 static var instance:NodeEnvironmentCamera
 var zoom_locked:bool
 
-
 func _init() -> void:
-	if instance != null: self.free()
+	if instance != null: 
+		free()
+		return
 	instance = self
 
 const scroll_speed:float = 0.1
