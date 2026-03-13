@@ -25,7 +25,7 @@ func execute(function:String) -> void:
 	if err is CNError: 
 		ExecutionHandler.instance.add_error_log(err)
 		return
-	print(function, " - ", str(loop_count))
+	
 	if function == "Run":
 		loop_count = 0
 		loop()

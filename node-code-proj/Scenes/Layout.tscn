@@ -42,6 +42,9 @@ bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpnu5"]
 bg_color = Color(0.40451086, 0.40451124, 0.40451103, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxtlj"]
+bg_color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
 [node name="Control" type="Control" unique_id=439458253]
 layout_mode = 3
 anchors_preset = 15
@@ -257,30 +260,56 @@ layout_mode = 2
 text = "Re-center Camera"
 script = ExtResource("4_hicjc")
 
-[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/VBoxContainer" unique_id=892924937]
+[node name="VSplitContainer" type="VSplitContainer" parent="HSplitContainer/VBoxContainer" unique_id=1140875553]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=1471530107]
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/VBoxContainer/VSplitContainer" unique_id=892924937]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer" unique_id=1471530107]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cpnu5")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=2085539476]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer" unique_id=2085539476]
 layout_mode = 2
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer" unique_id=1620765791]
+[node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer/SubViewportContainer" unique_id=1620765791]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(890, 558)
+size = Vector2i(890, 426)
 render_target_update_mode = 4
 
-[node name="NodeArea" parent="HSplitContainer/VBoxContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
+[node name="NodeArea" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
 position = Vector2(525, 384)
 
-[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/PanelContainer" unique_id=944092727]
+[node name="logging" type="PanelContainer" parent="HSplitContainer/VBoxContainer/VSplitContainer" unique_id=523560469]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HSplitContainer/VBoxContainer/VSplitContainer/logging" unique_id=1584809612]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxtlj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/VBoxContainer/VSplitContainer/logging" unique_id=1723522220]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/VSplitContainer/logging/ScrollContainer" unique_id=944092727 node_paths=PackedStringArray("scroll_container")]
 layout_mode = 2
 size_flags_vertical = 0
-horizontal_alignment = 2
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+
+
+
+
+
+"
 script = ExtResource("29_52mhk")
+scroll_container = NodePath("..")
