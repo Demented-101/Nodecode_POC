@@ -16,7 +16,7 @@ func populate_pins() -> void:
 	program.input_pins = [input]
 	
 	input.position = Vector2(0, 37)
-	input.setup(inputs.values()[0], self, 0, inputs.keys()[0])
+	input.setup(inputs.values()[0], self, 0, inputs.keys()[0], true)
 
 func update_display() -> void:
 	var height:int = 80

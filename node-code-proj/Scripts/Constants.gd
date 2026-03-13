@@ -7,6 +7,7 @@ enum ErrorType {
 	CalculationError, ## invalid calculation/process
 	ConnectionError, ## no expected input/connection
 	TypeError, ## Pin cannot calculate type
+	BeginningError, ## Cannot spawn new beginning, already exists
 }
 
 const allowed_data_depth:int = 100

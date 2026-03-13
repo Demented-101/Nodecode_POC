@@ -3,6 +3,7 @@ extends Node2D
 
 @export var sprite:Sprite2D
 @export var drag_zone:Control
+@export var name_label:Label
 
 @warning_ignore("shadowed_variable_base_class")
 var is_connected:bool ## if the pin has at least one connection
@@ -25,13 +26,16 @@ func _ready() -> void:
 	drag_zone.mouse_exited.connect(drag_handler.pin_hover_ended.bind(self))
 	z_index = 1
 
-func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int, _name:String):
+func setup(_type:CNode.pinTypes, _cnode:CNode, _index:int, _name:String, hide_pin_names:bool):
 	## update the type and cnode of the pin
 	type = _type
 	sprite.texture = gradients[type]
 	cnode = _cnode
 	index = _index
+	
 	pin_name = _name
+	name_label.text = _name
+	if hide_pin_names: name_label.hide()
 
 ## used for being connected + disconnected from a databus
 @abstract func connected(_new_bus:CNodeBus) -> void

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3xi8n")
 display_name = "Bool Constant"
-width = 250
+width = 190
 program_script = ExtResource("1_c3m4u")
 cnode_type = 1
 metadata/_custom_type_script = "uid://csaxo0ut2d10g"

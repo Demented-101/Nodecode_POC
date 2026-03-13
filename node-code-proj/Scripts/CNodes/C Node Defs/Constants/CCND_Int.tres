@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_k603c")
 display_name = "Int Constant"
-width = 250
+width = 190
 program_script = ExtResource("1_8qo7t")
 cnode_type = 1
 metadata/_custom_type_script = "uid://csaxo0ut2d10g"

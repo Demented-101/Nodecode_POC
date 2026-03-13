@@ -76,7 +76,7 @@ func populate_pins() -> void:
 		program.output_pins.append(new_out_pin)
 		
 		new_out_pin.position = Vector2(program.definition.width, 65 + (i * 30))
-		new_out_pin.setup(outputs.values()[i], self, i, outputs.keys()[i])
+		new_out_pin.setup(outputs.values()[i], self, i, outputs.keys()[i], false)
 	
 	## setup inputs
 	var inputs:Dictionary[String, pinTypes] = program.define_inputs()
@@ -93,7 +93,7 @@ func populate_pins() -> void:
 		program.input_pins.append(new_in_pin)
 		
 		new_in_pin.position = Vector2(0, 65 + (i * 30))
-		new_in_pin.setup(inputs.values()[i], self, i, inputs.keys()[i])
+		new_in_pin.setup(inputs.values()[i], self, i, inputs.keys()[i], false)
 
 func update_display() -> void:
 	var width:int = program.definition.width
