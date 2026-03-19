@@ -5,6 +5,7 @@
 [node name="OptionButton" type="OptionButton" unique_id=1039022078]
 offset_right = 32.0
 offset_bottom = 20.0
+selected = 0
 item_count = 4
 popup/item_0/text = "Forward"
 popup/item_0/id = 0

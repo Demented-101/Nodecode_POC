@@ -9,7 +9,8 @@ var origin_depth:int
 const descriptions:Dictionary[Const.ErrorType, String] = {
 	Const.ErrorType.NoExpectedValue: "No expected value - internal issue",
 	Const.ErrorType.MaxDepth: "Max depth reached - is there a loop somewhere?",
-	Const.ErrorType.BeginningError: "Can only have one instance of the beginning!"
+	Const.ErrorType.BeginningError: "Can only have one instance of the beginning!",
+	Const.ErrorType.NoAnyTypeValue: "Any Value (Gray) pin has no current value, add a connection"
 }
 
 func _init(err_type:Const.ErrorType, err_origin:Node = null, err_depth:int = -1):

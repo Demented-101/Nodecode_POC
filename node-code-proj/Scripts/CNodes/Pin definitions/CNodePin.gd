@@ -14,6 +14,7 @@ var pin_name:String ## the given name of the pin
 
 var gradients:Dictionary[CNode.pinTypes, Texture] = { ## stores all the pin gradients
 	CNode.pinTypes.Exc : preload("uid://cshc3blqmgwu3"),
+	CNode.pinTypes.DataAny : preload("uid://nthc74pnah67"),
 	CNode.pinTypes.Bool : preload("uid://evradaricva"),
 	CNode.pinTypes.Int : preload("uid://dtq01u6dywh6x"),
 	CNode.pinTypes._String : preload("uid://b7lofff33r0d3"),

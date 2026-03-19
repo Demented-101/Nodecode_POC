@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://c3q4ccl6vxdqn"]
+
+[ext_resource type="Script" uid="uid://bmn7xiegy7838" path="res://Scripts/CNodes/Programs/Execution/CN_WhileLoop.gd" id="1_klw3c"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_pr4dd"]
+
+[resource]
+script = ExtResource("2_pr4dd")
+display_name = "While"
+width = 170
+program_script = ExtResource("1_klw3c")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

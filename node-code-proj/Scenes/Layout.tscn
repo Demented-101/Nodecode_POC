@@ -2,39 +2,42 @@
 
 [ext_resource type="Script" uid="uid://dlvxitvshkaya" path="res://Scripts/ExecutionHandler.gd" id="1_4o32a"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_1ha1s"]
+[ext_resource type="PackedScene" uid="uid://b73ysr4tfl74f" path="res://Scenes/3D environment.tscn" id="2_42bh6"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/Toolbar/NodeSelector.gd" id="2_rp7uk"]
 [ext_resource type="Resource" uid="uid://btrvmb72bv3qm" path="res://Scripts/CNodes/C Node Defs/Math/CND_Add.tres" id="3_6ysdc"]
 [ext_resource type="Script" uid="uid://cyywd1pndmnp" path="res://Scripts/Toolbar/CameraZoom.gd" id="3_cpnu5"]
 [ext_resource type="PackedScene" uid="uid://jefplpo2lu1y" path="res://Scenes/Node Area.tscn" id="4_2g33g"]
-[ext_resource type="Resource" uid="uid://3giehi2so4s8" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Int.tres" id="4_5jvyq"]
-[ext_resource type="Script" uid="uid://bt7glb6fuo15k" path="res://Scripts/Toolbar/QuitButton.gd" id="4_cpnu5"]
 [ext_resource type="Script" uid="uid://16b5h82rjjeq" path="res://Scripts/Toolbar/RecenterCamButton.gd" id="4_hicjc"]
-[ext_resource type="Resource" uid="uid://cadqgt8tah6iy" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogInt.tres" id="5_5vvak"]
 [ext_resource type="Resource" uid="uid://r3ufqbs7nkug" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Int.tres" id="5_ae4ha"]
 [ext_resource type="Resource" uid="uid://dx37n3iuihavm" path="res://Scripts/CNodes/C Node Defs/Execution/CND_If.tres" id="5_vjqbb"]
-[ext_resource type="Resource" uid="uid://ciifmwa86tnxs" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogBool.tres" id="6_3bdn3"]
 [ext_resource type="Resource" uid="uid://byrenuw3drdah" path="res://Scripts/CNodes/C Node Defs/Math/CND_Subtract.tres" id="6_h2rv7"]
+[ext_resource type="Resource" uid="uid://bbdp742oi61c7" path="res://Scripts/CNodes/C Node Defs/Execution/CND_Log.tres" id="7_52mhk"]
 [ext_resource type="Resource" uid="uid://5tcmio0qcmtw" path="res://Scripts/CNodes/C Node Defs/Math/CND_Multiply.tres" id="7_rnwal"]
 [ext_resource type="Resource" uid="uid://7p5vb42kun4t" path="res://Scripts/CNodes/C Node Defs/Math/CND_Divide.tres" id="8_0dtrj"]
 [ext_resource type="Resource" uid="uid://cscmo5mrsr64l" path="res://Scripts/CNodes/C Node Defs/Execution/CND_Loop.tres" id="8_gxtlj"]
+[ext_resource type="Resource" uid="uid://c3yyxeil2a87n" path="res://Scripts/CNodes/C Node Defs/Execution/CND_ForLoop.tres" id="9_4yrgt"]
 [ext_resource type="Resource" uid="uid://bbifjfmw7p6bb" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Bool.tres" id="9_rnwal"]
-[ext_resource type="Resource" uid="uid://bw5m10lc2q4mf" path="res://Scripts/CNodes/C Node Defs/Outputs/OCND_Bool.tres" id="10_0dtrj"]
+[ext_resource type="Resource" uid="uid://b4p8qxiplk4kf" path="res://Scripts/CNodes/C Node Defs/Robot/CND_RobotMoveForward.tres" id="10_52mhk"]
+[ext_resource type="Resource" uid="uid://c3q4ccl6vxdqn" path="res://Scripts/CNodes/C Node Defs/Execution/CND_WhileLoop.tres" id="10_tsu4n"]
+[ext_resource type="Resource" uid="uid://ohyqpkd8eu7k" path="res://Scripts/CNodes/C Node Defs/Robot/CND_RobotMove.tres" id="11_42bh6"]
+[ext_resource type="Resource" uid="uid://c7tbhd4nkhedb" path="res://Scripts/CNodes/C Node Defs/Robot/CND_RobotFace.tres" id="11_52mhk"]
+[ext_resource type="Resource" uid="uid://cvimtt33bf1aa" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Direction.tres" id="11_gxtlj"]
 [ext_resource type="Resource" uid="uid://b4wvvtxd13bx7" path="res://Scripts/CNodes/C Node Defs/Logic/CND_And.tres" id="11_nobqo"]
 [ext_resource type="Resource" uid="uid://x6lvo3qns8kp" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Or.tres" id="12_3av68"]
 [ext_resource type="Resource" uid="uid://dqs4x52kek0gp" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Xor.tres" id="13_pdh8r"]
+[ext_resource type="Resource" uid="uid://d5fwh6n4jnvt" path="res://Scripts/CNodes/C Node Defs/Robot/CND_RobotTurnLeft.tres" id="13_welmn"]
+[ext_resource type="Resource" uid="uid://cmjv8pa1clnt7" path="res://Scripts/CNodes/C Node Defs/Robot/CND_RobotTurnRight.tres" id="14_gq13t"]
 [ext_resource type="Resource" uid="uid://bx48fa2tmfhpw" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Not.tres" id="14_r6p07"]
-[ext_resource type="Resource" uid="uid://dcp1ilt2aa0cn" path="res://Scripts/CNodes/C Node Defs/Logic/CND_IntEquals.tres" id="15_pdh8r"]
+[ext_resource type="Resource" uid="uid://0ccch412oj4w" path="res://Scripts/CNodes/C Node Defs/Robot/CND_RobotGetDirection.tres" id="15_gq13t"]
+[ext_resource type="Resource" uid="uid://dcp1ilt2aa0cn" path="res://Scripts/CNodes/C Node Defs/Logic/CND_Equals.tres" id="15_pdh8r"]
 [ext_resource type="Resource" uid="uid://63wqnw3leds7" path="res://Scripts/CNodes/C Node Defs/Logic/CND_GreaterThan.tres" id="16_r8tlv"]
 [ext_resource type="Resource" uid="uid://dn13hjeyqn7pr" path="res://Scripts/CNodes/C Node Defs/Logic/CND_LessThan.tres" id="17_wtpuo"]
-[ext_resource type="Resource" uid="uid://n3pc0jpo4giw" path="res://Scripts/CNodes/C Node Defs/Execution/CND_LogDebug.tres" id="18_wtpuo"]
+[ext_resource type="Resource" uid="uid://cb1qtoc4dgjdk" path="res://Scripts/CNodes/C Node Defs/Outputs/CND_Output.tres" id="18_52mhk"]
 [ext_resource type="Resource" uid="uid://ohq0oudbu0qw" path="res://Scripts/CNodes/C Node Defs/Constants/CCND_Exc.tres" id="19_vjhmg"]
-[ext_resource type="Resource" uid="uid://thq6vt7k7kuo" path="res://Scripts/CNodes/C Node Defs/Constants/_CCND_ExcButton.tres" id="22_na5hx"]
 [ext_resource type="Script" uid="uid://ca6nnrgcntvro" path="res://Scripts/LogsHandler.gd" id="29_52mhk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_klq1y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp7uk"]
 bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
@@ -74,37 +77,20 @@ split_offset = -599
 
 [node name="Robot Screen" type="SubViewportContainer" parent="HSplitContainer" unique_id=1245478478]
 clip_contents = true
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/Robot Screen" unique_id=178615107]
 handle_input_locally = false
-size = Vector2i(250, 648)
+size = Vector2i(200, 648)
 render_target_update_mode = 4
 
-[node name="Node3D" type="Node3D" parent="HSplitContainer/Robot Screen/SubViewport" unique_id=944097149]
-
-[node name="Camera3D" type="Camera3D" parent="HSplitContainer/Robot Screen/SubViewport/Node3D" unique_id=1528682521]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HSplitContainer/Robot Screen/SubViewport/Node3D" unique_id=1329028708]
-transform = Transform3D(3.547967, 0, 0, 0, 2.5674968, 0, 0, 0, 1, -0.13875583, -0.074748755, -1.8660605)
-mesh = SubResource("CylinderMesh_klq1y")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="HSplitContainer/Robot Screen/SubViewport/Node3D" unique_id=951703673]
-transform = Transform3D(3.547967, 0, 0, 0, 2.5674968, 0, 0, 0, 1, -2.3946362, -0.074748755, -1.8660605)
-mesh = SubResource("CylinderMesh_klq1y")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="HSplitContainer/Robot Screen/SubViewport/Node3D" unique_id=1211755080]
-transform = Transform3D(3.547967, 0, 0, 0, 2.5674968, 0, 0, 0, 1, 2.6967642, -0.074748755, -1.8660605)
-mesh = SubResource("CylinderMesh_klq1y")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="HSplitContainer/Robot Screen/SubViewport/Node3D" unique_id=1050169533]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39804327, 1.4156613, -0.24070424)
+[node name="Node3D" parent="HSplitContainer/Robot Screen/SubViewport" unique_id=218579202 instance=ExtResource("2_42bh6")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer" unique_id=1336179956]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
@@ -131,7 +117,7 @@ layout_mode = 2
 
 [node name="Top Section" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer" unique_id=1780565153]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="Execution" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1907049862 node_paths=PackedStringArray("popup")]
 layout_mode = 2
@@ -139,10 +125,23 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Execution"
 script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_vjqbb"), ExtResource("5_5vvak"), ExtResource("6_3bdn3"), ExtResource("8_gxtlj")])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("19_vjhmg"), ExtResource("5_vjqbb"), ExtResource("7_52mhk"), ExtResource("8_gxtlj"), ExtResource("9_4yrgt"), ExtResource("10_tsu4n")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Execution" unique_id=2037209084]
+title = "Data Nodes"
+
+[node name="Robot" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=564406344 node_paths=PackedStringArray("popup")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Robot
+"
+script = ExtResource("2_rp7uk")
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("11_gxtlj"), ExtResource("10_52mhk"), ExtResource("11_42bh6"), ExtResource("11_52mhk"), ExtResource("13_welmn"), ExtResource("14_gq13t"), ExtResource("15_gq13t")])
+popup = NodePath("PopupMenu")
+
+[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Robot" unique_id=1094346639]
 title = "Data Nodes"
 
 [node name="Math Nodes" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=968152237 node_paths=PackedStringArray("popup")]
@@ -151,7 +150,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Math"
 script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("4_5jvyq"), ExtResource("5_ae4ha"), ExtResource("3_6ysdc"), ExtResource("6_h2rv7"), ExtResource("7_rnwal"), ExtResource("8_0dtrj")])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("5_ae4ha"), ExtResource("3_6ysdc"), ExtResource("6_h2rv7"), ExtResource("7_rnwal"), ExtResource("8_0dtrj")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Math Nodes" unique_id=1494591544]
@@ -163,22 +162,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Logic"
 script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("10_0dtrj"), ExtResource("9_rnwal"), ExtResource("11_nobqo"), ExtResource("12_3av68"), ExtResource("13_pdh8r"), ExtResource("14_r6p07"), ExtResource("15_pdh8r"), ExtResource("16_r8tlv"), ExtResource("17_wtpuo")])
+nodes = Array[ExtResource("2_1ha1s")]([ExtResource("9_rnwal"), ExtResource("18_52mhk"), ExtResource("11_nobqo"), ExtResource("12_3av68"), ExtResource("13_pdh8r"), ExtResource("14_r6p07"), ExtResource("15_pdh8r"), ExtResource("16_r8tlv"), ExtResource("17_wtpuo")])
 popup = NodePath("PopupMenu")
 
 [node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/Logic" unique_id=1363424505]
-title = "Data Nodes"
-
-[node name="debug" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=564406344 node_paths=PackedStringArray("popup")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Debug!!"
-script = ExtResource("2_rp7uk")
-nodes = Array[ExtResource("2_1ha1s")]([ExtResource("18_wtpuo"), ExtResource("22_na5hx")])
-popup = NodePath("PopupMenu")
-
-[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section/debug" unique_id=1094346639]
 title = "Data Nodes"
 
 [node name="VSeparator" type="VSeparator" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=901454897]
@@ -210,7 +197,7 @@ text = "Stop
 layout_mode = 2
 
 [node name="speed_slider" type="HSlider" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1957250396]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_vertical = 4
 max_value = 0.9
@@ -220,16 +207,6 @@ value = 0.45
 [node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1245823375]
 layout_mode = 2
 text = "Speed"
-
-[node name="Spacer" type="Control" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1664634720]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Quit" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer/Top Section" unique_id=1408649148]
-layout_mode = 2
-size_flags_vertical = 4
-text = "Quit"
-script = ExtResource("4_cpnu5")
 
 [node name="Camera Controls" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/Toolbar/MarginContainer/VBoxContainer" unique_id=1825652398]
 layout_mode = 2
@@ -281,7 +258,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer/SubViewportContainer" unique_id=1620765791]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(890, 426)
+size = Vector2i(940, 426)
 render_target_update_mode = 4
 
 [node name="NodeArea" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
@@ -295,21 +272,6 @@ custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gxtlj")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/VBoxContainer/VSplitContainer/logging" unique_id=1723522220]
+[node name="RichTextLabel" type="RichTextLabel" parent="HSplitContainer/VBoxContainer/VSplitContainer/logging" unique_id=1813224921]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/VSplitContainer/logging/ScrollContainer" unique_id=944092727 node_paths=PackedStringArray("scroll_container")]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 20
-text = "
-
-
-
-
-
-
-
-"
 script = ExtResource("29_52mhk")
-scroll_container = NodePath("..")

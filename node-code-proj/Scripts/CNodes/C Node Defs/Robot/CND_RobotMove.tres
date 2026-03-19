@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://ohyqpkd8eu7k"]
+
+[ext_resource type="Script" uid="uid://cjkdloiy6gj2a" path="res://Scripts/CNodes/Programs/Robot/CN_RbtMove.gd" id="1_wqd73"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_gs8bj"]
+
+[resource]
+script = ExtResource("2_gs8bj")
+display_name = "Robot Move"
+width = 210
+program_script = ExtResource("1_wqd73")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

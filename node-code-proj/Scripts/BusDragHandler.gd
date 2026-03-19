@@ -63,9 +63,11 @@ func end_drag() -> void:
 		if DataBus.check_pin_validity(pin, hovered_pin):
 			if pin is DataPinOut: create_connection(pin, hovered_pin, false)
 			else: create_connection(hovered_pin, pin, false)
+		
 		elif ExecutionBus.check_pin_validity(pin, hovered_pin):
 			if pin is ExecutionPinOut: create_connection(pin, hovered_pin, true)
 			else: create_connection(hovered_pin, pin, true)
+		
 	elif hovered_pin != null:
 		hovered_pin.on_clicked()
 

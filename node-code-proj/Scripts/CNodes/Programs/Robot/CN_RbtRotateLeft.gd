@@ -23,5 +23,5 @@ func execute(_function:String) -> void:
 		ExecutionHandler.instance.add_error_log(err)
 		return
 	
-	Robot.instance.move()
+	Robot.instance.turn(true)
 	output_pins[0].execute()

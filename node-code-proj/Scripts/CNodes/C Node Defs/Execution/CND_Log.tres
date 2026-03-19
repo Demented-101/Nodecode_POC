@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://bbdp742oi61c7"]
+
+[ext_resource type="Script" uid="uid://cqpblugp54xy" path="res://Scripts/CNodes/Programs/Execution/CN_Log.gd" id="1_u1ojd"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_g31sc"]
+
+[resource]
+script = ExtResource("2_g31sc")
+display_name = "Log"
+width = 120
+program_script = ExtResource("1_u1ojd")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

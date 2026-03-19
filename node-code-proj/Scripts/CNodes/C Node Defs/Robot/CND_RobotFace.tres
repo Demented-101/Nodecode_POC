@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://c7tbhd4nkhedb"]
+
+[ext_resource type="Script" uid="uid://cvpoisxrqjm6q" path="res://Scripts/CNodes/Programs/Robot/CN_RbtFace.gd" id="1_8ii77"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_pi37t"]
+
+[resource]
+script = ExtResource("2_pi37t")
+display_name = "Robot Face"
+width = 210
+program_script = ExtResource("1_8ii77")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

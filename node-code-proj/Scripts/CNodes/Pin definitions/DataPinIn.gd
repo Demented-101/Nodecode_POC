@@ -29,8 +29,10 @@ func get_value(depth:int) -> Variant:
 	
 	## define default values
 	match type:
+		CNode.pinTypes.DataAny: return CNError.new(Const.ErrorType.NoAnyTypeValue, self, depth)
 		CNode.pinTypes.Bool: return false
 		CNode.pinTypes.Int: return 0
+		CNode.pinTypes.Direction: return Robot.directions.Forward
 		CNode.pinTypes._String: return ""
 	
 	return CNError.new(Const.ErrorType.TypeError, self, depth)

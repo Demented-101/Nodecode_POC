@@ -8,6 +8,14 @@ enum ErrorType {
 	ConnectionError, ## no expected input/connection
 	TypeError, ## Pin cannot calculate type
 	BeginningError, ## Cannot spawn new beginning, already exists
+	NoAnyTypeValue, ## DataAny pin doesnt have a current value
 }
 
 const allowed_data_depth:int = 100
+
+func data_to_string(value:Variant, type:CNode.pinTypes) -> String:
+	match type:
+		CNode.pinTypes.Bool: return "True" if value else "False"
+		CNode.pinTypes.Direction: return ["Forward", "Right", "Backward", "Left"][value]
+	
+	return str(value)

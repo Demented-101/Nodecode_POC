@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://d5fwh6n4jnvt"]
+
+[ext_resource type="Script" uid="uid://bnomm8afcef1w" path="res://Scripts/CNodes/Programs/Robot/CN_RbtRotateLeft.gd" id="1_y064g"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_nk83m"]
+
+[resource]
+script = ExtResource("2_nk83m")
+display_name = "Robot Rotate Left"
+width = 240
+program_script = ExtResource("1_y064g")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

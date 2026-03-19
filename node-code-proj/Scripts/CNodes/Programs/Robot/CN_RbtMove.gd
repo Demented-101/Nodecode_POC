@@ -3,6 +3,7 @@ extends CNodeProgram
 func define_inputs() -> Dictionary[String, CNode.pinTypes]:
 	return {
 		"Run" : CNode.pinTypes.Exc,
+		"Direction" : CNode.pinTypes.Direction,
 	}
 
 func define_outputs() -> Dictionary[String, CNode.pinTypes]:
@@ -18,10 +19,10 @@ func execute(_function:String) -> void:
 		printerr("Invalid function run")
 		return
 	
-	var err = verify_inputs(1, 0)
+	var err = verify_inputs(2, 0)
 	if err is CNError: 
 		ExecutionHandler.instance.add_error_log(err)
 		return
 	
-	Robot.instance.move()
+	Robot.instance.move(input_values[1])
 	output_pins[0].execute()

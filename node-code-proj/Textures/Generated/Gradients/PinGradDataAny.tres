@@ -1,0 +1,9 @@
+[gd_resource type="GradientTexture2D" format=3 uid="uid://nthc74pnah67"]
+
+[sub_resource type="Gradient" id="Gradient_t65ya"]
+colors = PackedColorArray(0.796243, 0.796243, 0.796243, 1, 0.5370111, 0.5370114, 0.5370112, 1)
+
+[resource]
+gradient = SubResource("Gradient_t65ya")
+width = 22
+height = 18

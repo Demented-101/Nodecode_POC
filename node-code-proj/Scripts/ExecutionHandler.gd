@@ -98,3 +98,6 @@ func return_back() -> void:
 	var return_point := return_queue[-1]
 	return_point.execute("_Returned")
 	return_queue.erase(return_point)
+
+func add_error_log(err:CNError) -> void: ## DEPRECATED
+	LogsHandler.instance.add_error_log(err)

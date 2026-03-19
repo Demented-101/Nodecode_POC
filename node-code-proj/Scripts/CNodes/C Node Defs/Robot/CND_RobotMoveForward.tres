@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://ohyqpkd8eu7k"]
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://b4p8qxiplk4kf"]
 
-[ext_resource type="Script" uid="uid://cjkdloiy6gj2a" path="res://Scripts/CNodes/Programs/Robot/CN_RbtMoveForward.gd" id="1_rbo8q"]
+[ext_resource type="Script" uid="uid://c8a6k24f2y24b" path="res://Scripts/CNodes/Programs/Robot/CN_RbtMoveForward.gd" id="1_rbo8q"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_tnsp1"]
 
 [resource]

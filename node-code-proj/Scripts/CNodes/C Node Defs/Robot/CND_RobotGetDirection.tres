@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://0ccch412oj4w"]
+
+[ext_resource type="Script" uid="uid://cufbf0vrsonhv" path="res://Scripts/CNodes/Programs/Robot/CN_RbtGetDirection.gd" id="1_wkbwb"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_byrmo"]
+
+[resource]
+script = ExtResource("2_byrmo")
+display_name = "Robot Get Direction"
+width = 240
+program_script = ExtResource("1_wkbwb")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"
