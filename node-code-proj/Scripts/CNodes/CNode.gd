@@ -1,7 +1,7 @@
 extends Node2D
 class_name CNode
 
-enum pinTypes {Exc, Bool, Int, _String}
+enum pinTypes {Exc, Bool, Int, _String, Direction}
 
 const C_NODE := preload("uid://dy4tla84v3wg6")
 const EXC_PIN_IN = preload("uid://bgi85t6ida8te")

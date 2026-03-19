@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b73ysr4tfl74f"]
+
+[ext_resource type="Script" uid="uid://cn8ksc4me0p2q" path="res://Scripts/Robot.gd" id="1_cfhlt"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mnxhl"]
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfhlt"]
+albedo_color = Color(0.23977515, 0.6383771, 0.023989137, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mqsgr"]
+top_radius = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_digda"]
+size = Vector3(3, 3, 3)
+
+[node name="Node3D" type="Node3D" unique_id=218579202]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1500994596]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 23.23639, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=485829197]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 15, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1927576657]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_mnxhl")
+surface_material_override/0 = SubResource("StandardMaterial3D_cfhlt")
+
+[node name="Robot" type="MeshInstance3D" parent="." unique_id=447542112]
+transform = Transform3D(0.259878, 0, 0, 0, 0.259878, 0, 0, 0, 0.259878, 0, 0, 0)
+mesh = SubResource("CylinderMesh_mqsgr")
+script = ExtResource("1_cfhlt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Robot" unique_id=1852562277]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, -0.53810203, -2.0431776)
+mesh = SubResource("BoxMesh_digda")

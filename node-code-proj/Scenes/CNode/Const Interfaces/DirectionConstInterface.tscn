@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://btcqtisjqkwdp"]
+
+[ext_resource type="Script" uid="uid://cu4p8e1i4xern" path="res://Scripts/CNodes/Constants/DirectionConstInterface.gd" id="1_81xri"]
+
+[node name="OptionButton" type="OptionButton" unique_id=1039022078]
+offset_right = 32.0
+offset_bottom = 20.0
+item_count = 4
+popup/item_0/text = "Forward"
+popup/item_0/id = 0
+popup/item_1/text = "Right"
+popup/item_1/id = 1
+popup/item_2/text = "Backward"
+popup/item_2/id = 2
+popup/item_3/text = "Left"
+popup/item_3/id = 3
+script = ExtResource("1_81xri")

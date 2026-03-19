@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://cadqgt8tah6iy"]
 
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="1_pmlmh"]
-[ext_resource type="Script" uid="uid://c0dtuuinorkgt" path="res://Scripts/CNodes/Programs/Execution/LogInt.gd" id="1_yod6g"]
+[ext_resource type="Script" uid="uid://c0dtuuinorkgt" path="res://Scripts/CNodes/Programs/Execution/CN_LogInt.gd" id="1_yod6g"]
 
 [resource]
 script = ExtResource("1_pmlmh")

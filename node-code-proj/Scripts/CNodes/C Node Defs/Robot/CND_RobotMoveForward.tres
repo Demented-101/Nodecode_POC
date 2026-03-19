@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://ohyqpkd8eu7k"]
+
+[ext_resource type="Script" uid="uid://cjkdloiy6gj2a" path="res://Scripts/CNodes/Programs/Robot/CN_RbtMoveForward.gd" id="1_rbo8q"]
+[ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_tnsp1"]
+
+[resource]
+script = ExtResource("2_tnsp1")
+display_name = "Robot Move Forward"
+width = 250
+program_script = ExtResource("1_rbo8q")
+metadata/_custom_type_script = "uid://csaxo0ut2d10g"

@@ -16,7 +16,8 @@ var gradients:Dictionary[CNode.pinTypes, Texture] = { ## stores all the pin grad
 	CNode.pinTypes.Exc : preload("uid://cshc3blqmgwu3"),
 	CNode.pinTypes.Bool : preload("uid://evradaricva"),
 	CNode.pinTypes.Int : preload("uid://dtq01u6dywh6x"),
-	CNode.pinTypes._String : preload("uid://b7lofff33r0d3")
+	CNode.pinTypes._String : preload("uid://b7lofff33r0d3"),
+	CNode.pinTypes.Direction : preload("uid://15rgqj104wv2"),
 }
 
 func _ready() -> void:

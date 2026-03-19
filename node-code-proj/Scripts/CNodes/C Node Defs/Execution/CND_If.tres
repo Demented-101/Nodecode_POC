@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CNodeDefinition" format=3 uid="uid://dx37n3iuihavm"]
 
-[ext_resource type="Script" path="res://Scripts/CNodes/Programs/Execution/If.gd" id="1_dph8f"]
+[ext_resource type="Script" uid="uid://c0k7e4pov0qca" path="res://Scripts/CNodes/Programs/Execution/CN_If.gd" id="1_dph8f"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_3aere"]
 
 [resource]
