@@ -32,8 +32,14 @@ func _ready() -> void:
 func start_execution() -> void:
 	timer = 0
 	is_running = true
+	
 	if current_state == ExecutionStates.Stopped:
 		execution_started.emit()
+		LogsHandler.instance.clear_logs()
+		LogsHandler.instance.add_command_log("Starting")
+	else:
+		LogsHandler.instance.add_command_log("Resuming")
+		
 	current_state = ExecutionStates.Running
 	
 	start_button.disabled = true
@@ -44,6 +50,7 @@ func pause_execution() -> void:
 	timer = 0
 	is_running = false
 	current_state = ExecutionStates.Paused
+	LogsHandler.instance.add_command_log("Paused")
 	
 	start_button.disabled = false
 	pause_button.disabled = true
@@ -53,8 +60,8 @@ func end_execution() -> void:
 	is_running = false
 	next = null
 	current_state = ExecutionStates.Stopped
+	LogsHandler.instance.add_command_log("Stopped")
 	execution_ended.emit()
-	LogsHandler.instance.clear()
 	
 	start_button.disabled = false
 	pause_button.disabled = true
