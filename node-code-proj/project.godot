@@ -19,6 +19,10 @@ config/icon="res://Textures/icon.svg"
 
 Const="*uid://cvavqih44hjh4"
 
+[debug]
+
+gdscript/warnings/native_method_override=1
+
 [input]
 
 L_click={

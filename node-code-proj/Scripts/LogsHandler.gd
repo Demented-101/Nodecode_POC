@@ -1,11 +1,8 @@
-extends Label
+extends RichTextLabel
 class_name LogsHandler
 
 @export var debug_print:bool
 @export var scroll_container:ScrollContainer
-
-const max_logs:int = 50
-var logs:Array[String] = []
 
 static var instance:LogsHandler
 func _ready() -> void:
@@ -14,22 +11,18 @@ func _ready() -> void:
 		return
 	instance = self
 
-func clear() -> void:
-	logs = []
+func clear_logs():
+	clear()
+	text = ""
 
 func add_log(new_log:String) -> void:
 	if debug_print: print("--> ", new_log)
-	logs.append(new_log)
-	update_text()
+	append_text("   --> " + new_log + "\n")
+
+func add_command_log(new_log:String) -> void:
+	if debug_print: print("COMMAND - " + new_log)
+	append_text("[color=Dimgray]" + new_log + "[/color]\n")
 
 func add_error_log(error:CNError) -> void:
 	if debug_print: printerr("!-> ", error.get_error_string())
-	logs.append(error.get_simple_error_string())
-	update_text()
-
-func update_text() -> void:
-	if logs.size() > max_logs: logs.remove_at(0)
-	text = ""
-	for i in logs: text += "->   " + i + "\n"
-	
-	scroll_container.scroll_vertical = ceili(size.y)
+	append_text("[color=red]   !-> " + error.get_simple_error_string() + "[/color]\n")
