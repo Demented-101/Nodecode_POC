@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dlvxitvshkaya" path="res://Scripts/ExecutionHandler.gd" id="1_4o32a"]
 [ext_resource type="Script" uid="uid://csaxo0ut2d10g" path="res://Scripts/CNodes/NodeDefinition.gd" id="2_1ha1s"]
 [ext_resource type="PackedScene" uid="uid://b73ysr4tfl74f" path="res://Scenes/3D environment.tscn" id="2_42bh6"]
+[ext_resource type="Script" uid="uid://cpvlc6ts4qikx" path="res://Scripts/Task Set.gd" id="2_227aw"]
 [ext_resource type="Script" uid="uid://lf316vpp2bqw" path="res://Scripts/Toolbar/NodeSelector.gd" id="2_rp7uk"]
 [ext_resource type="Resource" uid="uid://btrvmb72bv3qm" path="res://Scripts/CNodes/C Node Defs/Math/CND_Add.tres" id="3_6ysdc"]
 [ext_resource type="Script" uid="uid://cyywd1pndmnp" path="res://Scripts/Toolbar/CameraZoom.gd" id="3_cpnu5"]
@@ -39,6 +40,18 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7blk1"]
 bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsu4n"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.27450982)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp7uk"]
 bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
 
@@ -72,22 +85,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_7blk1")
-split_offsets = PackedInt32Array(-599)
-split_offset = -599
 
-[node name="Robot Screen" type="SubViewportContainer" parent="HSplitContainer" unique_id=1245478478]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HSplitContainer" unique_id=1718314769]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/VBoxContainer2" unique_id=226654895]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VBoxContainer2/MarginContainer" unique_id=1585804844]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HSplitContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=318248573]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Current Task:"
+autowrap_mode = 3
+
+[node name="Task" type="Label" parent="HSplitContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=272328943 node_paths=PackedStringArray("next_button", "prev_button")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8175213, 0.8175213, 0.81752115, 1)
+theme_override_font_sizes/font_size = 16
+text = "Make the Robot move in anti-clockwise circles 5 times"
+autowrap_mode = 3
+script = ExtResource("2_227aw")
+tasks = Array[String](["Move the Robot Forward", "Make the Robot Rotate 360 degrees", "Make the Robot Move in a + sign", "Make the Robot move forward Forever", "make the Robot move in an anti-clockwise motion", "Make the Robot Dance!", "Make an And gate truth-table", "Make the Robot move in a constant direction", "make the Robot look left, right, forward, backwards in a loop.", "Do the same using only one Face Node.", "Make a 1 bit Adder using logic components", "Make a 2 bit Adder using logic components", "Try get an Error!"])
+next_button = NodePath("../PanelContainer/Next")
+prev_button = NodePath("../PanelContainer/Prev")
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/VBoxContainer2/MarginContainer/VBoxContainer" unique_id=393259373]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tsu4n")
+
+[node name="Prev" type="Button" parent="HSplitContainer/VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer" unique_id=1696630895]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "< Prev"
+
+[node name="Next" type="Button" parent="HSplitContainer/VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer" unique_id=1121739290]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Next >"
+
+[node name="Robot Screen" type="SubViewportContainer" parent="HSplitContainer/VBoxContainer2" unique_id=1245478478]
 clip_contents = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HSplitContainer/Robot Screen" unique_id=178615107]
+[node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer2/Robot Screen" unique_id=178615107]
 handle_input_locally = false
-size = Vector2i(200, 648)
+size = Vector2i(214, 486)
 render_target_update_mode = 4
 
-[node name="Node3D" parent="HSplitContainer/Robot Screen/SubViewport" unique_id=218579202 instance=ExtResource("2_42bh6")]
+[node name="Node3D" parent="HSplitContainer/VBoxContainer2/Robot Screen/SubViewport" unique_id=218579202 instance=ExtResource("2_42bh6")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer" unique_id=1336179956]
 custom_minimum_size = Vector2(600, 0)
@@ -258,7 +316,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer/SubViewportContainer" unique_id=1620765791]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(940, 426)
+size = Vector2i(926, 426)
 render_target_update_mode = 4
 
 [node name="NodeArea" parent="HSplitContainer/VBoxContainer/VSplitContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=219264318 instance=ExtResource("4_2g33g")]
